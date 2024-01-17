@@ -2,17 +2,9 @@
 General Stuff
 */
 body {
-    
     height: 100%;
-    
     background: #5D7DE9;
-    
-    /* Chrome 10-25, Safari 5.1-6 /
-    background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1));
-    
-    / W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    background-image: linear-gradient(rgba(132, 250, 176, 1), #5D7DE9)
-    
+    background-image: linear-gradient(#1DE0DA, #2EC7DE, #3EADE2, #4F92E6, #5D7DE9)
 }
 
 nav {
@@ -33,21 +25,26 @@ Navbar
 #navbar-logo {
     width: 361px;
     height: 233px;
-    margin-left: 5rem;
+    margin-left: 3rem;
 }
 
 #navbarNav {
     max-width: 40%;
-    margin-right: 5rem;
+    margin-right: 3rem;
 }
 
 /*
 Body - Main Page
 */
 
+#main-body {
+    margin-left: 6rem;
+    margin-right: 6rem;
+}
+
 #front-page-img {
-    width: 710px;
-    height: 683px;
+    width: 568px;
+    height: 546.4px;
 }
 
 #to-games-button {
@@ -59,4 +56,57 @@ Body - Main Page
 
 #to-games-button:hover {
     filter: drop-shadow(0px 0px 0px);
+}
+
+#quantum-swag {
+    background-color: #1DE0DA;
+    text-align: center;
+    width: 100%;
+    padding-bottom: 2rem;
+}
+
+#quantum-swag > div {
+    margin: 2rem 6rem 0rem 6rem;
+}
+
+/* .quantum-swag-link {
+    
+} */
+
+.quantum-swag {
+    width: 394px;
+    height: 426;
+    border: 1px solid black;
+    transition: transform .2s;
+    border-radius: 30px;
+}
+
+.quantum-swag:hover {
+    transform: scale(1.1);
+}
+
+.ms-2 {
+    margin-left: 0rem!important;
+}
+
+/*
+Footer
+*/
+
+#logo-footer-div {
+    width: fit-content;
+}
+
+#logo-footer {
+    width: 161px;
+    height: 129px;
+}
+
+.social-media-link {
+    width: 50px;
+    height: 50px;
+}
+
+#footer-copyright {
+    color: white;
 }
