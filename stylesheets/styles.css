@@ -5,14 +5,14 @@ General Stuff
     font-family: 'Gemunu Libre', sans-serif;
 }
 
-body {
-    height: 100%;
-    background: #5D7DE9;
-    background-image: linear-gradient(#1DE0DA, #2EC7DE, #3EADE2, #4F92E6, #5D7DE9)
+.upper-gradient {
+    background-image: linear-gradient(#5D7DE9, #4F92E6, #3EADE2, #2EC7DE, #1DE0DA);
 }
 
-nav {
-    height: fit-content;
+body {
+    height: 100%;
+    /* background: #5D7DE9; */
+    /* background-image: linear-gradient(#5D7DE9, #4F92E6, #3EADE2, #2EC7DE, #1DE0DA); */
 }
 
 h1, h2, .nav-link {
@@ -38,6 +38,14 @@ h2 {
 /*
 Navbar
 */
+
+nav {
+    height: fit-content;
+    border-bottom: 2px solid black;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
 #navbar-logo {
     width: 361px;
     height: 233px;
@@ -100,15 +108,20 @@ Quantum Swag
     
 } */
 
-.quantum-swag {
+.quantum-swag, .quantum-game {
     width: 394px;
-    height: 426;
+    height: 426px;
     border: 2px solid #5E90F2;
     transition: transform .2s;
     border-radius: 30px;
+   
 }
 
-.quantum-swag:hover {
+.quantum-game {
+    border-color: #000;
+}
+
+.quantum-swag:hover, .quantum-game:hover {
     transform: scale(1.1);
 }
 
@@ -119,6 +132,12 @@ Quantum Swag
 /*
 Footer
 */
+
+#footer {
+    /* background: #1DE0DA; */
+    background-image: linear-gradient(#1DE0DA, #2EC7DE, #3EADE2, #4F92E6, #5D7DE9);
+    border-top: 2px solid #5E90F2;
+}
 
 #logo-footer-div {
     width: fit-content;
@@ -137,4 +156,34 @@ Footer
 
 .social-media-link:hover {
     transform: scale(1.25);
+}
+
+/*
+Game Selection
+*/
+
+
+
+.game-row-left {
+    margin-left: 5rem;
+}
+
+.game-row-left > .game-title{
+    margin-left: 24rem;
+}
+
+.game-row-right {
+    margin-right: 5rem;
+}
+
+.game-row-right > .game-title {
+    margin-right: 24rem;
+}
+
+.horizontal-line {
+    width: 50%;
+    height: 2px;
+    background-color: #000;
+    margin-left: auto;
+    margin-right: auto;
 }
