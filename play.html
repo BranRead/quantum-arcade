@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Quantum Arcade</title>
-    <link rel="icon" type="image/x-icon" href="/images/icononly_transparent_nobuffer.png">
+    <link rel="icon" type="image/x-icon" href="/images/tabIcon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gemunu+Libre&display=swap" rel="stylesheet">
@@ -39,20 +39,41 @@
       </nav>
       <div>
 
+        <!--Modal for login-->
         <div class="modal fade" id="login-modal" tabindex="-1" aria-labelledby="login-modal-label" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
               <div class="modal-content">
-                <div id="modal-background"></div>
+                <div id="modal-background-gradient"></div>
+                <div id="modal-background-image"></div>
+                <div id="modal-background-filter"></div>
                 <div class="modal-header">
-                  <h1 class="modal-title fs-5 white-text" id="login-modal-label">Ready for more?</h1>
+                  <h2 class="modal-title white-text" id="login-modal-label">Ready for more?</h2>
                 </div>
                 <div class="modal-body">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem debitis accusamus quasi voluptatem, velit accusantium repellendus at. Corrupti, magni sint!
+                    <form action="#" method="post">
+                        <div class="d-flex flex-column align-items-center">
+                            <input type="email" id="emailLogin" name="email" placeholder="email">
+                            <input type="password" id="passwordLogin" name="password" placeholder="password">
+                        
+                            <div class="d-flex flex-row align-items-center justify-content-between mt-3">
+                                <div class="me-4"><a href="#">Forgot Password?</a></div>
+                                <div><button class="sm-button ms-2" type="submit">Login</button></div>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="d-flex flex-column align-items-center">
+                        <div class="orange-banner mt-3">
+                            <h2 class="white-text">Looking to get started?</h2>
+                        </div>
+                        <h2 class="white-text">Press start to join the fray</h2>
+                        <button class="sm-button my-5" type="button">Start</button>
+                    </div>
                 </div>
               </div>
             </div>
         </div>
-        
+        <!--End of modal for login-->
+
         <h1 class="purple-text text-center mt-5">Choose your destiny:</h1>
         <div class="d-flex flex-column py-5">
             <div class="d-flex flex-row align-items-center game-row-left">
