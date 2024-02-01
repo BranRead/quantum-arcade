@@ -2,7 +2,7 @@
     $server = "localhost";
     $userName = "root";
     $pass = "";
-    $dbname = "gymbrosdb";
+    $dbname = "quantumarcade";
 
     $conn = new mysqli($server, $userName, $pass, $dbname);
 
