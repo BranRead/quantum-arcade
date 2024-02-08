@@ -25,9 +25,9 @@ if ($_POST["password"] !== $_POST["password_conf"]) {
 
 $passHash = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
-$conn = use __DIR__ . "/config.php";
+$conn = require __DIR__ . "/config.php";
 
-$conn = "INSERT INTO users (name, email, passHash) VALUES (?, ?, ?)";
+$sql = "INSERT INTO users (name, email, passHash) VALUES (?, ?, ?)";
 
 $stmt = $conn->stmt_init();
 
