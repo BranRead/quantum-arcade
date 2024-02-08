@@ -94,7 +94,7 @@ nav {
 }
 
 #navbarNav {
-    max-width: 40%;
+    max-width: fit-content;
     margin-right: 3rem;
 }
 
@@ -265,7 +265,7 @@ Login
     background-repeat: no-repeat;
     position: absolute;
     /* For some reason changing this top value also changes horizonal alignment of the image */
-    top: 50px;
+    top: 20px;
     right: 0px;
     bottom: 0;
     left: 0;
@@ -284,11 +284,25 @@ Login
 
 }
 
-#emailLogin, #passwordLogin {
+.form-input {
     border-radius: 30px;
     border: none;
     padding: 0.5rem;
     padding-left: 2rem;
     margin-top: 2rem;
     font-size: 2em;
+}
+
+#profileTitle {
+    margin-top: 6rem;
+}
+
+#profileTitle > img {
+    width: 100px;
+    height: 100px;
+}
+
+#profileTitle > p {
+    margin-bottom: 0;
+    margin-left: 1rem;
 }
