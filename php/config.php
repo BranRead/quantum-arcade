@@ -1,7 +1,7 @@
 <?php
     $server = "localhost";
     $userName = "root";
-    $pass = getenv('MYSQL_SECURE_PASSWORD');
+    $pass = ""
     $dbname = "quantumarcade";
 
     $conn = new mysqli($server, $userName, $pass, $dbname);
@@ -11,4 +11,3 @@
     }
 
     return $conn;
-    
