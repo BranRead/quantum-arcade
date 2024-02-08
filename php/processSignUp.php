@@ -1,6 +1,6 @@
 <?php
-if (empty($_POST["name"])) {
-    die("Name is required");
+if (empty($_POST["username"])) {
+    die("Username is required");
 }
 
 if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
@@ -25,14 +25,14 @@ if ($_POST["password"] !== $_POST["password_conf"]) {
 
 $passHash = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
-$db = require __DIR__ . "/config.php";
+$conn = use __DIR__ . "/config.php";
 
-$sql = "INSERT INTO users (name, email, passHash) VALUES (?, ?, ?)";
+$conn = "INSERT INTO users (name, email, passHash) VALUES (?, ?, ?)";
 
-$stmt = $db->stmt_init();
+$stmt = $conn->stmt_init();
 
 if (!$stmt->prepare($sql)) {
-    die("SQL error: " . $db->error);
+    die("SQL error: " . $conn->error);
 }
 
 $stmt->bind_param("sss", $_POST["name"], $_POST["email"], $passHash);
@@ -40,9 +40,9 @@ if ($stmt->execute()) {
     header("location: signup-success.html");
     exit;
 } else {
-    if ($db->errno === 1062) {
+    if ($conn->errno === 1062) {
         die("Email already used.");
     } else {
-        die($db->error . " " . $db->errno);
+        die($conn->error . " " . $conn->errno);
     }
 }

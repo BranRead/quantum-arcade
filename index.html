@@ -1,13 +1,3 @@
-<?php
-session_start();
-
-if (isset($_SESSION["userID"])) {
-  $db = require __DIR__ . "/php/config.php";
-  $sql = "SELECT * FROM users WHERE id = {$_SESSION["userID"]}";
-  $result = $db->query($sql);
-  $user = $result->fetch_assoc();
-}
-?>
 <!doctype html>
 <html lang="en">
 

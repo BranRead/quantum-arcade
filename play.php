@@ -1,13 +1,24 @@
 <? php
 
-    $isInvalid = false;
-if ($_SERVER["REQUEST_METHOD"] == false) {
-    $conn = require "config.php";
-    $
+    session_start();
+    
+    if (isset($_SESSION["userID"])) {
+      $db = require __DIR__ . "/php/config.php";
+      $sql = "SELECT * FROM users WHERE id = {$_SESSION["userID"]}";
+      $result = $db->query($sql);
+      $user = $result->fetch_assoc();
+    } else {
+        header("Location: index.html");
+        exit;
     }
-  session_start();
-  if (!isset($_SESSION['user'])) {
-      header('Location: index.html');
+        $isInvalid = false;
+    if ($_SERVER["REQUEST_METHOD"] == false) {
+        $conn = require "config.php";
+        $
+        }
+      session_start();
+      if (!isset($_SESSION['user'])) {
+          header('Location: index.html');
   }
 
   $conn = require "config.php";
@@ -103,8 +114,14 @@ if ($_SERVER["REQUEST_METHOD"] == false) {
                     <?php
                     while ($row = $result->fetch_Assoc()) {
                         echo "
-                            <div class='img-game'>
-";
+                        <div class='img-game' data-bs-toggle=modal data-bs-target='#login-modal'>
+                        <a class='quantum-game-link' href='#'><img class='quantum-game img-fluid' src='" . $row['url'] . "' alt=''></a>
+                    </div>
+
+                    <div class='game-title'>
+                        <h2 class='white-text'>" . $row['name'] . "</h2>
+                    </div>
+                    ";
                     }
                     ?>
                     <div class="img-game" data-bs-toggle=modal data-bs-target="#login-modal">
