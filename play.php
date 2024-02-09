@@ -1,35 +1,8 @@
-<? php
+<?php
 
     session_start();
     
-    $conn = require "config.php";
-    
-    if (isset($_SESSION["userID"])) {
-      $sql = "SELECT * FROM users WHERE id = {$_SESSION["userID"]}";
-      $result = $conn->query($sql);
-      $user = $result->fetch_assoc();
-    } else {
-        header("Location: index.html");
-        exit;
-    }
-        $isInvalid = false;
-    if ($_SERVER["REQUEST_METHOD"] == false) {
-        $conn = require "config.php";
-        $
-        }
-      session_start();
-      if (!isset($_SESSION['user'])) {
-          header('Location: index.html');
-  }
-
-  
-
-  $sql = "select * from GamesList";
-  $result = $conn->query($sql);
-  if (!result) {
-      trigger_error('Invalid query: ' . $conn->error)
-  }
-  $conn->close();
+    require_once "php/config.php";
 ?>
 <!doctype html>
 <html lang="en">
@@ -114,7 +87,7 @@
             <?php while ($row = $result->fetch_Assoc()) {
                 echo "
                 <div class='img-game' data-bs-toggle=modal data-bs-target='#login-modal'>
-                <a class='quantum-game-link' href='#'><img class='quantum-game img-fluid' src='" . $row['url'] . "' alt=''></a>
+                <a class='quantum-game-link' href='#'><img class='quantum-game img-fluid' src='" . $row['image_url'] . "' alt=''></a>
             </div>
             <div class='game-title'>
                 <h2 class='white-text'>" . $row['name'] . "</h2>
@@ -123,14 +96,6 @@
             ";
             }
             ?>
-            <!-- <div class="img-game" data-bs-toggle=modal data-bs-target="#login-modal">
-                <a class="quantum-game-link" href="#"><img class="quantum-game img-fluid" src="images/battyFarmingPlaceholder.png" alt=""></a>
-            </div>
-        <div class="game-title">
-            <h2 class="white-text">Batty Farming</h2>
-        </div> -->
-        <!-- <a class="quantum-game-link game-row-right" href="#"><img class="quantum-game img-fluid" src="images/Coming_soon.png" alt=""></a>
-        <h2 class="white-text game-title game-row-left">Game 2</h2> -->
         </div>
         <div class="horizontal-line"></div>
             <div class="d-flex flex-row align-items-center  justify-content-end  game-row-right">
@@ -149,8 +114,6 @@
                     <div class="game-title">
                         <h2 class="white-text">Game 3</h2>
                     </div>
-                    <!-- <a class="quantum-game-link game-row-right" href="#"><img class="quantum-game img-fluid" src="images/Coming_soon.png" alt=""></a>
-                    <h2 class="white-text game-title game-row-left">Game 4</h2> -->
                 </div>
                 <div class="horizontal-line"></div>
                     <div class="d-flex flex-row align-items-center justify-content-end game-row-right">
