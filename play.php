@@ -1,8 +1,9 @@
 <?php
+session_start();
+require_once "php/Crud.php";
 
-    session_start();
-    
-    require_once "php/config.php";
+$crud = new Crud();
+$crud->read("SELECT * FROM games");
 ?>
 <!doctype html>
 <html lang="en">
@@ -30,7 +31,7 @@
                 <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link purple-text active" aria-current="page" href="play.html">Play</a>
+                            <a class="nav-link purple-text active" aria-current="page" href="play.php">Play</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link purple-text" href="#">Merch</a>
@@ -47,92 +48,92 @@
         </nav>
     </div>
 
-     <!--Modal for login-->
-     <div class="modal fade" id="login-modal" tabindex="-1" aria-labelledby="login-modal-label" aria-hidden="true">
-         <div class="modal-dialog modal-dialog-centered">
-             <div class="modal-content">
-                 <div id="modal-background-gradient"></div>
-                 <div id="modal-background-image"></div>
-                 <div id="modal-background-filter"></div>
-                 <div class="modal-header">
-                     <h2 class="modal-title white-text" id="login-modal-label">Ready for more?</h2>
-                 </div>
-                 <div class="modal-body">
-                     <form action="#" method="post">
-                         <div class="d-flex flex-column align-items-center">
-                             <input type="email" id="emailLogin" name="email" placeholder="email">
-                             <input type="password" id="passwordLogin" name="password" placeholder="password">
-                          <div class="d-flex flex-row align-items-center justify-content-between mt-3">
-                                 <div class="me-4"><a href="#">Forgot Password?</a></div>
-                                 <div><button class="sm-button ms-2" type="submit">Login</button></div>
-                             </div>
-                         </div>
-                     </form>
-                     <div class="d-flex flex-column align-items-center">
-                         <div class="orange-banner mt-3">
-                             <h2 class="white-text">Looking to get started?</h2>
-                         </div>
-                         <h2 class="white-text">Press start to join the fray</h2>
-                         <button class="sm-button my-5" type="button">Start</button>
-                     </div>
-                 </div>
-             </div>
-         </div>
-     </div>
-     <!--End of modal for login-->
+    <!--Modal for login-->
+    <div class="modal fade" id="login-modal" tabindex="-1" aria-labelledby="login-modal-label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div id="modal-background-gradient"></div>
+                <div id="modal-background-image"></div>
+                <div id="modal-background-filter"></div>
+                <div class="modal-header">
+                    <h2 class="modal-title white-text" id="login-modal-label">Ready for more?</h2>
+                </div>
+                <div class="modal-body">
+                    <form action="#" method="post">
+                        <div class="d-flex flex-column align-items-center">
+                            <input type="email" id="emailLogin" name="email" placeholder="email">
+                            <input type="password" id="passwordLogin" name="password" placeholder="password">
+                            <div class="d-flex flex-row align-items-center justify-content-between mt-3">
+                                <div class="me-4"><a href="#">Forgot Password?</a></div>
+                                <div><button class="sm-button ms-2" type="submit">Login</button></div>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="d-flex flex-column align-items-center">
+                        <div class="orange-banner mt-3">
+                            <h2 class="white-text">Looking to get started?</h2>
+                        </div>
+                        <h2 class="white-text">Press start to join the fray</h2>
+                        <button class="sm-button my-5" type="button">Start</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End of modal for login-->
 
     <h1 class="purple-text text-center mt-5">Choose your destiny:</h1>
     <div class="d-flex flex-column py-5">
         <div class="d-flex flex-row align-items-center game-row-left">
-            <?php while ($row = $result->fetch_Assoc()) {
-                echo "
-                <div class='img-game' data-bs-toggle=modal data-bs-target='#login-modal'>
-                <a class='quantum-game-link' href='#'><img class='quantum-game img-fluid' src='" . $row['image_url'] . "' alt=''></a>
-            </div>
+            <?php
+            $row = $crud->fetch_assoc();
+            echo "
+            <div class='d-flex flex-row align-items-center  justify-content-end  game-row-right'>
             <div class='game-title'>
-                <h2 class='white-text'>" . $row['name'] . "</h2>
+                <h2 class='white-text'>{$row['title']}</h2>
+                <p>{$row['description']}</p>
             </div>
-            <div class='horizontal-line'></div>
-            ";
-            }
+                <div class='img-game'>
+                    <a class='quantum-game-link' href='#'><img class='quantum-game img-fluid' src='{$row['game_image']}' alt=''></a>
+                </div>";
             ?>
         </div>
         <div class="horizontal-line"></div>
-            <div class="d-flex flex-row align-items-center  justify-content-end  game-row-right">
-                <div class="game-title">
-                    <h2 class="white-text">Game 2</h2>
-                </div>
-                <div class="img-game">
-                    <a class="quantum-game-link" href="#"><img class="quantum-game img-fluid" src="images/Coming_soon.png" alt=""></a>
-                </div>
+        <div class="d-flex flex-row align-items-center  justify-content-end  game-row-right">
+            <div class="game-title">
+                <h2 class="white-text">Game 2</h2>
             </div>
-            <div class="horizontal-line"></div>
-                <div class="d-flex flex-row align-items-center game-row-left">
-                    <div class="img-game">
-                        <a class="quantum-game-link" href="#"><img class="quantum-game img-fluid" src="images/Coming_soon.png" alt=""></a>
-                    </div>
-                    <div class="game-title">
-                        <h2 class="white-text">Game 3</h2>
-                    </div>
-                </div>
-                <div class="horizontal-line"></div>
-                    <div class="d-flex flex-row align-items-center justify-content-end game-row-right">
-                        <div class="game-title">
-                            <h2 class="white-text">Game 4</h2>
-                        </div>
-                        <div class="img-game">
-                            <a class="quantum-game-link" href="#"><img class="quantum-game img-fluid" src="images/Coming_soon.png" alt=""></a>
-                        </div>
-                    </div>
-                </div>
+            <div class="img-game">
+                <a class="quantum-game-link" href="#"><img class="quantum-game img-fluid" src="images/Coming_soon.png" alt=""></a>
             </div>
         </div>
-        <div id="footer" class="d-flex flex-column align-items-center">
-            <div id="logo-footer-div">
-                <img id="logo-footer" src="images/fulllogo_transparent.png" alt="Website Logo">
+        <div class="horizontal-line"></div>
+        <div class="d-flex flex-row align-items-center game-row-left">
+            <div class="img-game">
+                <a class="quantum-game-link" href="#"><img class="quantum-game img-fluid" src="images/Coming_soon.png" alt=""></a>
             </div>
-            <div class="d-flex flex-row justify-content-center">
-                <a href="#"><img class="social-media-link mx-3" src="images/twitch.png" alt=""></a>
+            <div class="game-title">
+                <h2 class="white-text">Game 3</h2>
+            </div>
+        </div>
+        <div class="horizontal-line"></div>
+        <div class="d-flex flex-row align-items-center justify-content-end game-row-right">
+            <div class="game-title">
+                <h2 class="white-text">Game 4</h2>
+            </div>
+            <div class="img-game">
+                <a class="quantum-game-link" href="#"><img class="quantum-game img-fluid" src="images/Coming_soon.png" alt=""></a>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <div id="footer" class="d-flex flex-column align-items-center">
+        <div id="logo-footer-div">
+            <img id="logo-footer" src="images/fulllogo_transparent.png" alt="Website Logo">
+        </div>
+        <div class="d-flex flex-row justify-content-center">
+            <a href="#"><img class="social-media-link mx-3" src="images/twitch.png" alt=""></a>
             <a href="#"><img class="social-media-link mx-3" src="images/Intagram.png" alt=""></a>
             <a href="#"><img class="social-media-link mx-3" src="images/facebook.png" alt=""></a>
         </div>

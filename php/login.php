@@ -1,6 +1,7 @@
 <?php
 namespace login;
-using Crud.php;
+use Crud;
+require_once 'Crud.php';
 class Login
 {
     public function login()

@@ -1,7 +1,7 @@
 <?php
 use Crud.php;
 
-namespace processSIgnUp;
+namespace processSignUp;
 
 class processSignUp
 {
