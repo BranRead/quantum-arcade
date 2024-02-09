@@ -1,9 +1,10 @@
 <?php
-session_start();
-require_once "php/Crud.php";
 
-$crud = new Crud();
-$crud->read("SELECT * FROM games");
+session_start();
+require_once "php/crud.php";
+
+$crud = new crud();
+$result = $crud->read('SELECT * FROM gamelist');
 ?>
 <!doctype html>
 <html lang="en">
@@ -85,21 +86,49 @@ $crud->read("SELECT * FROM games");
     <h1 class="purple-text text-center mt-5">Choose your destiny:</h1>
     <div class="d-flex flex-column py-5">
         <div class="d-flex flex-row align-items-center game-row-left">
+            <!--
+            The issue lies on line 93, because it repeats the same classes.
+            have to figure out a way to set classes based on iteration,
+            or come up with a different card system thats repeatable.
+            I left the proceeding 3 iterations below the while loop,
+            so we might be able to do something with the id's from the table
+            i.e if id % 1 then game row right else game row left
+
+            it kind of worked. Im not sure if its the '' or "" screwing things up. will revisit.
+            it wasnt.
+            -->
             <?php
-            $row = $crud->fetch_assoc();
-            echo "
-            <div class='d-flex flex-row align-items-center  justify-content-end  game-row-right'>
-            <div class='game-title'>
-                <h2 class='white-text'>{$row['title']}</h2>
-                <p>{$row['description']}</p>
-            </div>
-                <div class='img-game'>
-                    <a class='quantum-game-link' href='#'><img class='quantum-game img-fluid' src='{$row['game_image']}' alt=''></a>
-                </div>";
+            while ($row = $result->fetch_assoc()) {
+                if ($row['game_id'] % 2 == 0) {
+                    echo "{$row['game_id']}
+                <div class=d-flex 'flex-row align-items-center justify-content-end game-row-right'>
+                    <div class='game-title'>
+                        <h2 >{$row['title']}</h2>
+                        <p >{$row['description']}</p>
+                    </div>
+                    <div class='img-game'>
+                        <a class='quantum-game-link' href='{$row['game_url']}'><img class='quantum-game img-fluid' src='{$row['image_url']}' alt=''></a>
+                    </div>
+                </div>
+                <div class='horizontal-line'></div>";
+                } else {
+                echo "{$row['game_id']}
+                <div class='d-flex flex-row align-items-center game-row-left'>
+                    <div class='game-title'>
+                        <h2 >{$row['title']}</h2>
+                        <p >{$row['description']}</p>
+                    </div>
+                    <div class='img-game'>
+                        <a class='quantum-game-link' href='{$row['game_url']}'><img class='quantum-game img-fluid' src='{$row['image_url']}' alt=''></a>
+                    </div>
+                </div>
+                ";
+                }
+            }
             ?>
         </div>
         <div class="horizontal-line"></div>
-        <div class="d-flex flex-row align-items-center  justify-content-end  game-row-right">
+        <div class="d-flex flex-row align-items-center justify-content-end game-row-right">
             <div class="game-title">
                 <h2 class="white-text">Game 2</h2>
             </div>
@@ -125,8 +154,6 @@ $crud->read("SELECT * FROM games");
                 <a class="quantum-game-link" href="#"><img class="quantum-game img-fluid" src="images/Coming_soon.png" alt=""></a>
             </div>
         </div>
-    </div>
-    </div>
     </div>
     <div id="footer" class="d-flex flex-column align-items-center">
         <div id="logo-footer-div">

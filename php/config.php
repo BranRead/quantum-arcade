@@ -1,24 +1,26 @@
 <?php
     class Config
     {
+        private $server = 'localhost';
+        private $userName = 'root';
+        private $pass = "";
+        private $dbname = 'quantumarcade';
+
         public function getDBConnection()
         {
-           $server = "localhost";
-           $userName = "root";
-           $pass = getenv('MYSQL_SECURE_PASSWORD');
-           $dbname = "quantumarcade";
+
 
            try {
-                $conn = new mysqli($server, $userName, $pass, $dbname);
+                $conn = new mysqli($this->server, $this->userName, $this->pass, $this->dbname);
                 if ($conn->connect_errno) {
-                    die("Connection Error: " . $conn->connect_errno);
+                    die('Connection Error: ' . $conn->connect_errno);
                 }
 
                return $conn;
            }
            catch (Exception $e)
            {
-               die("Connection Error: " . $e->getMessage());
+               die('Connection Error: ' . $e->getMessage());
            }
         }
     }
