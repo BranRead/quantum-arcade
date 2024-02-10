@@ -124,4 +124,24 @@ class Crud
             $conn->close();
         }
     }
+
+    protected function createSessionID()
+    {
+        $length = 32;
+        // Define the characters allowed in the session ID
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+        // Get the number of characters allowed
+        $charLength = strlen($characters);
+
+        // Initialize the session ID variable
+        $sessionID = '';
+
+        // Generate a random session ID of the specified length
+        for ($i = 0; $i < $length; $i++) {
+            $sessionID .= $characters[rand(0, $charLength - 1)];
+        }
+
+        return $sessionID;
+    }
 }
