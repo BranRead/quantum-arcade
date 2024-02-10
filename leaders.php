@@ -32,15 +32,157 @@
                   <a class="nav-link purple-text active" aria-current="page" href="leaders.php">Leaders</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link purple-text" href="#">About Us</a>
+                  <a class="nav-link purple-text" href="about.php">About Us</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link purple-text" href="#">Contact</a>
+                  <a class="nav-link purple-text" href="contact.php">Contact</a>
                 </li>
               </ul>
             </div>
           </div>
       </nav>
+        <!--Modal for user settings-->
+        <div class="modal fade" id="user-settings" tabindex="-1" aria-labelledby="login-modal-label" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-background-gradient"></div>
+                    <div class="modal-background-image"></div>
+                    <div class="modal-background-filter"></div>
+                    <div class="modal-header">
+                        <h2 class="modal-title white-text" id="login-modal-label">User Settings</h2>
+                    </div>
+                    <div class="modal-body d-flex flex-column justify-content-center align-items-center">
+                        <button class="white-text sm-button-settings my-3" data-bs-toggle=modal data-bs-target="#password-change-modal">Change Password</button>
+                        <button class="white-text sm-button-settings my-3">Sign Out</button>
+                        <button class="white-text sm-button-settings my-3" data-bs-toggle=modal data-bs-target="#reset-scores-modal">Reset All Scores</button>
+                        <button class="white-text sm-button-settings my-3" data-bs-toggle=modal data-bs-target="#delete-account-modal">Delete Account</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--End of modal for user settings-->
+
+        <!--Modal for change password-->
+        <div class="modal fade" id="password-change-modal" tabindex="-1" aria-labelledby="login-modal-label" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-background-gradient"></div>
+                    <div class="modal-background-image"></div>
+                    <div class="modal-background-filter"></div>
+                    <div class="modal-header">
+                        <h2 class="modal-title white-text" id="login-modal-label">Change Password</h2>
+                    </div>
+                    <div class="modal-body d-flex flex-column justify-content-center align-items-center">
+                        <form action="#" method="post">
+                            <div class="d-flex flex-column align-items-center">
+                                <input type="password" id="oldPassword" class="form-input" name="oldPassword" placeholder="Old Password">
+                                <input type="password" id="newPassword" class="form-input" name="newPassword" placeholder="New Password">
+                                <input type="password" id="newPasswordConfirm" class="form-input" name="newPasswordConfirm" placeholder="Retype New Password">
+                                <button class="sm-button mt-4" type="submit">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--End of modal for change password-->
+
+        <!--Modal for reset scores-->
+        <div class="modal fade" id="reset-scores-modal" tabindex="-1" aria-labelledby="login-modal-label" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-background-gradient"></div>
+                    <div class="modal-background-image"></div>
+                    <div class="modal-background-filter"></div>
+                    <div class="modal-header warning-banner">
+                        <h2 class="modal-title white-text" id="login-modal-label">&#9888 Reset Scores &#9888</h2>
+                    </div>
+                    <div class="modal-body d-flex flex-column justify-content-center align-items-center">
+                        <form action="#" method="post">
+                            <div class="d-flex flex-column align-items-center">
+                                <input type="password" id="password" class="form-input" name="password" placeholder="Password">
+                                <input type="password" id="passwordConfirm" class="form-input" name="passwordConfirm" placeholder="Confirm Password">
+
+                            </div>
+                        </form>
+                        <button class="sm-button mt-4" data-bs-toggle=modal data-bs-target="#reset-scores-confirm-modal">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--End of modal for reset scores-->
+
+        <!--Modal for reseting scores verification-->
+        <div class="modal fade" id="reset-scores-confirm-modal" tabindex="-1" aria-labelledby="login-modal-label" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-background-gradient"></div>
+                    <div class="modal-background-image"></div>
+                    <div class="modal-background-filter"></div>
+                    <div class="modal-header">
+                        <h2 class="modal-title white-text" id="login-modal-label">&#9888 Warning &#9888</h2>
+                    </div>
+                    <div class="modal-body d-flex flex-column justify-content-center align-items-center">
+                        <div class="confirm-modal">
+                            <p>This action can not be reversed!</p>
+                            <p>Once you press "Confirm" your scores will be lost permanently.</p>
+                            <p>Please be absolutely sure you wish to continue before clicking the big red button!</p>
+                        </div>
+                        <button id="submitResetScores" class="bg-red-button mt-4 p-4">Confirm</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--End of modal for deleting account verification-->
+
+
+        <!--Modal for deleting account-->
+        <div class="modal fade" id="delete-account-modal" tabindex="-1" aria-labelledby="login-modal-label" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-background-gradient"></div>
+                    <div class="modal-background-image"></div>
+                    <div class="modal-background-filter"></div>
+                    <div class="modal-header warning-banner">
+                        <h2 class="modal-title white-text" id="login-modal-label">&#9888 Delete Account &#9888</h2>
+                    </div>
+                    <div class="modal-body d-flex flex-column justify-content-center align-items-center">
+                        <form action="#" method="post">
+                            <div class="d-flex flex-column align-items-center">
+                                <input type="password" id="password" class="form-input" name="password" placeholder="Password">
+                                <input type="password" id="passwordConfirm" class="form-input" name="passwordConfirm" placeholder="Confirm Password">
+
+                            </div>
+                        </form>
+                        <button class="sm-button mt-4" data-bs-toggle=modal data-bs-target="#delete-account-confirm-modal">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--End of modal for deleting account-->
+
+        <!--Modal for deleting account verification-->
+        <div class="modal fade" id="delete-account-confirm-modal" tabindex="-1" aria-labelledby="login-modal-label" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-background-gradient"></div>
+                    <div class="modal-background-image"></div>
+                    <div class="modal-background-filter"></div>
+                    <div class="modal-header">
+                        <h2 class="modal-title white-text" id="login-modal-label">&#9888 Warning &#9888</h2>
+                    </div>
+                    <div class="modal-body d-flex flex-column justify-content-center align-items-center">
+                        <div class="confirm-modal">
+                            <p>This action can not be reversed!</p>
+                            <p>Once you press "Confirm" all data will be lost permanently.</p>
+                            <p>Please be absolutely sure you wish to continue before clicking the big red button!</p>
+                        </div>
+                        <button id="submitDeleteAccount" class="bg-red-button mt-4 p-4">Confirm</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--End of modal for deleting account verification-->
 
       <div class="d-flex flex-column align-items-center">
         <p id="leadersTitle" class="purple-text">Current Masters of their Domain</p>
@@ -49,7 +191,7 @@
       <div class="container-fluid">
             
         <div class="row justify-content-around my-3">
-            <div class="col-lg-4 leaderboard-card" style="background-image: url('/images/battyFarmingPlaceholder.png')">
+            <div class="col-lg-5 leaderboard-card" style="background-image: url('/images/gameimages/battyFarming.png')">
                 <div class="header-leaderboard text-center white-text"><h2>Batty Farming</h2></div>
                 <table class="leaderboard-table white-text">
                     <thead>
@@ -60,255 +202,123 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <tr class="table-row">
                             <th scope="row">#1</th>
                             <td><img class="leaderboard-display-pic" src="images/default-profile-pic.png" alt="">Username</td>
                             <td>100 000 000</td>
                         </tr>
-                        <tr>
+                        <tr class="table-row">
                             <th scope="row">#2</th>
                             <td>Username</td>
                             <td>100 000 000</td>
                         </tr>
-                        <tr>
+                        <tr class="table-row">
                             <th scope="row">#3</th>
-                            <td><div><p>Username</p></div></td>
+                            <td>Username</td>
                             <td>100 000 000</td>
                         </tr>
-                        <tr>
+                        <tr class="table-row">
                             <th scope="row">#4</th>
-                            <td><div><p>Username</p></div></td>
+                            <td>Username</td>
                             <td>100 000 000</td>
                         </tr>
-                        <tr>
+                        <tr class="table-row">
                             <th scope="row">#5</th>
-                            <td><div><p>Username</p></div></td>
+                            <td>Username</td>
                             <td>100 000 000</td>
                         </tr>
-                        <tr>
+                        <tr class="table-row">
                             <th scope="row">#6</th>
-                            <td><div><p>Username</p></div></td>
+                            <td>Username</td>
                             <td>100 000 000</td>
                         </tr>
-                        <tr>
+                        <tr class="table-row">
                             <th scope="row">#7</th>
-                            <td><div><p>Username</p></div></td>
+                            <td>Username</td>
                             <td>100 000 000</td>
                         </tr>
-                        <tr>
+                        <tr class="table-row">
                             <th scope="row">#8</th>
-                            <td><div><p>Username</p></div></td>
+                            <td>Username</td>
                             <td>100 000 000</td>
-                        </tr>
-                        <tr>
+                        </tr class="table-row">
+                        <tr class="table-row">
                             <th scope="row">#9</th>
-                            <td><div><p>Username</p></div></td>
+                            <td>Username</td>
                             <td>100 000 000</td>
                         </tr>
-                        <tr>
+                        <tr class="table-row">
                             <th scope="row">#10</th>
-                            <td><div><p>Username</p></div></td>
+                            <td>Username</td>
                             <td>100 000 000</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-            <div class="col-lg-4 leaderboard-card">
+            <div class="col-lg-5 leaderboard-card" style="background-image: url('/images/gameimages/bolt.png')">
                 <div class="header-leaderboard text-center white-text"><h2>Bolt</h2></div>
-                <table class="leaderboard-table">
+                <table class="leaderboard-table white-text">
                     <thead>
-                        <tr>
-                            <th scope="col">Rank</th>
-                            <th scope="col">Player</th>
-                            <th scope="col">Score</th>
-                        </tr>
+                    <tr>
+                        <th scope="col">Rank</th>
+                        <th scope="col">Player</th>
+                        <th scope="col">Score</th>
+                    </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">#1</th>
-                            <td><div><img class="leaderboard-display-pic" src="images/default-profile-pic.png" alt=""><p>Username</p></div></td>
-                            <td>100 000 000</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">#2</th>
-                            <td><div><p>Username</p></div></td>
-                            <td>100 000 000</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">#3</th>
-                            <td><div><p>Username</p></div></td>
-                            <td>100 000 000</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">#4</th>
-                            <td><div><p>Username</p></div></td>
-                            <td>100 000 000</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">#5</th>
-                            <td><div><p>Username</p></div></td>
-                            <td>100 000 000</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">#6</th>
-                            <td><div><p>Username</p></div></td>
-                            <td>100 000 000</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">#7</th>
-                            <td><div><p>Username</p></div></td>
-                            <td>100 000 000</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">#8</th>
-                            <td><div><p>Username</p></div></td>
-                            <td>100 000 000</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">#9</th>
-                            <td><div><p>Username</p></div></td>
-                            <td>100 000 000</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">#10</th>
-                            <td><div><p>Username</p></div></td>
-                            <td>100 000 000</td>
-                        </tr>
+                    <tr class="table-row">
+                        <th scope="row">#1</th>
+                        <td><img class="leaderboard-display-pic" src="images/default-profile-pic.png" alt="">Username</td>
+                        <td>100 000 000</td>
+                    </tr>
+                    <tr class="table-row">
+                        <th scope="row">#2</th>
+                        <td>Username</td>
+                        <td>100 000 000</td>
+                    </tr>
+                    <tr class="table-row">
+                        <th scope="row">#3</th>
+                        <td>Username</td>
+                        <td>100 000 000</td>
+                    </tr>
+                    <tr class="table-row">
+                        <th scope="row">#4</th>
+                        <td>Username</td>
+                        <td>100 000 000</td>
+                    </tr>
+                    <tr class="table-row">
+                        <th scope="row">#5</th>
+                        <td>Username</td>
+                        <td>100 000 000</td>
+                    </tr>
+                    <tr class="table-row">
+                        <th scope="row">#6</th>
+                        <td>Username</td>
+                        <td>100 000 000</td>
+                    </tr>
+                    <tr class="table-row">
+                        <th scope="row">#7</th>
+                        <td>Username</td>
+                        <td>100 000 000</td>
+                    </tr>
+                    <tr class="table-row">
+                        <th scope="row">#8</th>
+                        <td>Username</td>
+                        <td>100 000 000</td>
+                    </tr class="table-row">
+                    <tr class="table-row">
+                        <th scope="row">#9</th>
+                        <td>Username</td>
+                        <td>100 000 000</td>
+                    </tr>
+                    <tr class="table-row">
+                        <th scope="row">#10</th>
+                        <td>Username</td>
+                        <td>100 000 000</td>
+                    </tr>
                     </tbody>
                 </table>
             </div>
-        </div>
-
-        <div class="row justify-content-around my-3">
-            <div class="col-lg-4 leaderboard-card">
-                <div class="header-leaderboard text-center white-text"><h2>Batty Farming</h2></div>
-                <table class="leaderboard-table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Rank</th>
-                            <th scope="col">Player</th>
-                            <th scope="col">Score</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">#1</th>
-                            <td><div><img class="leaderboard-display-pic" src="images/default-profile-pic.png" alt=""><p>Username</p></div></td>
-                            <td>100 000 000</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">#2</th>
-                            <td><div><p>Username</p></div></td>
-                            <td>100 000 000</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">#3</th>
-                            <td><div><p>Username</p></div></td>
-                            <td>100 000 000</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">#4</th>
-                            <td><div><p>Username</p></div></td>
-                            <td>100 000 000</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">#5</th>
-                            <td><div><p>Username</p></div></td>
-                            <td>100 000 000</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">#6</th>
-                            <td><div><p>Username</p></div></td>
-                            <td>100 000 000</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">#7</th>
-                            <td><div><p>Username</p></div></td>
-                            <td>100 000 000</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">#8</th>
-                            <td><div><p>Username</p></div></td>
-                            <td>100 000 000</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">#9</th>
-                            <td><div><p>Username</p></div></td>
-                            <td>100 000 000</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">#10</th>
-                            <td><div><p>Username</p></div></td>
-                            <td>100 000 000</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="col-lg-4 leaderboard-card">
-                <div class="header-leaderboard text-center white-text"><h2>Bolt</h2></div>
-                <table class="leaderboard-table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Rank</th>
-                            <th scope="col">Player</th>
-                            <th scope="col">Score</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">#1</th>
-                            <td><div><img class="leaderboard-display-pic" src="images/default-profile-pic.png" alt=""><p>Username</p></div></td>
-                            <td>100 000 000</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">#2</th>
-                            <td><div><p>Username</p></div></td>
-                            <td>100 000 000</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">#3</th>
-                            <td><div><p>Username</p></div></td>
-                            <td>100 000 000</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">#4</th>
-                            <td><div><p>Username</p></div></td>
-                            <td>100 000 000</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">#5</th>
-                            <td><div><p>Username</p></div></td>
-                            <td>100 000 000</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">#6</th>
-                            <td><div><p>Username</p></div></td>
-                            <td>100 000 000</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">#7</th>
-                            <td><div><p>Username</p></div></td>
-                            <td>100 000 000</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">#8</th>
-                            <td><div><p>Username</p></div></td>
-                            <td>100 000 000</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">#9</th>
-                            <td><div><p>Username</p></div></td>
-                            <td>100 000 000</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">#10</th>
-                            <td><div><p>Username</p></div></td>
-                            <td>100 000 000</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
 
       </div>
 

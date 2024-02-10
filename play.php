@@ -42,10 +42,10 @@ $result = $crud->read('SELECT * FROM gamelist');
                             <a class="nav-link purple-text" href="leaders.php">Leaders</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link purple-text" href="#">About Us</a>
+                            <a class="nav-link purple-text" href="about.php">About Us</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link purple-text" href="#">Contact</a>
+                            <a class="nav-link purple-text" href="contact.php">Contact</a>
                         </li>
                     </ul>
                 </div>
@@ -57,9 +57,9 @@ $result = $crud->read('SELECT * FROM gamelist');
     <div class="modal fade" id="user-settings" tabindex="-1" aria-labelledby="login-modal-label" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-              <div id="modal-background-gradient"></div>
-              <div id="modal-background-image"></div>
-              <div id="modal-background-filter"></div>
+              <div class="modal-background-gradient"></div>
+              <div class="modal-background-image"></div>
+              <div class="modal-background-filter"></div>
               <div class="modal-header">
                 <h2 class="modal-title white-text" id="login-modal-label">User Settings</h2>
               </div>
@@ -78,9 +78,9 @@ $result = $crud->read('SELECT * FROM gamelist');
       <div class="modal fade" id="password-change-modal" tabindex="-1" aria-labelledby="login-modal-label" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
-            <div id="modal-background-gradient"></div>
-            <div id="modal-background-image"></div>
-            <div id="modal-background-filter"></div>
+            <div class="modal-background-gradient"></div>
+            <div class="modal-background-image"></div>
+            <div class="modal-background-filter"></div>
             <div class="modal-header">
               <h2 class="modal-title white-text" id="login-modal-label">Change Password</h2>
             </div>
@@ -103,9 +103,9 @@ $result = $crud->read('SELECT * FROM gamelist');
     <div class="modal fade" id="reset-scores-modal" tabindex="-1" aria-labelledby="login-modal-label" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-          <div id="modal-background-gradient"></div>
-          <div id="modal-background-image"></div>
-          <div id="modal-background-filter"></div>
+          <div class="modal-background-gradient"></div>
+          <div class="modal-background-image"></div>
+          <div class="modal-background-filter"></div>
           <div class="modal-header warning-banner">
             <h2 class="modal-title white-text" id="login-modal-label">&#9888 Reset Scores &#9888</h2>
           </div>
@@ -128,9 +128,9 @@ $result = $crud->read('SELECT * FROM gamelist');
 <div class="modal fade" id="reset-scores-confirm-modal" tabindex="-1" aria-labelledby="login-modal-label" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
-      <div id="modal-background-gradient"></div>
-      <div id="modal-background-image"></div>
-      <div id="modal-background-filter"></div>
+      <div class="modal-background-gradient"></div>
+      <div class="modal-background-image"></div>
+      <div class="modal-background-filter"></div>
       <div class="modal-header">
         <h2 class="modal-title white-text" id="login-modal-label">&#9888 Warning &#9888</h2>
       </div>
@@ -152,9 +152,9 @@ $result = $crud->read('SELECT * FROM gamelist');
    <div class="modal fade" id="delete-account-modal" tabindex="-1" aria-labelledby="login-modal-label" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
-        <div id="modal-background-gradient"></div>
-        <div id="modal-background-image"></div>
-        <div id="modal-background-filter"></div>
+        <div class="modal-background-gradient"></div>
+        <div class="modal-background-image"></div>
+        <div class="modal-background-filter"></div>
         <div class="modal-header warning-banner">
           <h2 class="modal-title white-text" id="login-modal-label">&#9888 Delete Account &#9888</h2>
         </div>
@@ -177,9 +177,9 @@ $result = $crud->read('SELECT * FROM gamelist');
 <div class="modal fade" id="delete-account-confirm-modal" tabindex="-1" aria-labelledby="login-modal-label" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
-      <div id="modal-background-gradient"></div>
-      <div id="modal-background-image"></div>
-      <div id="modal-background-filter"></div>
+      <div class="modal-background-gradient"></div>
+      <div class="modal-background-image"></div>
+      <div class="modal-background-filter"></div>
       <div class="modal-header">
         <h2 class="modal-title white-text" id="login-modal-label">&#9888 Warning &#9888</h2>
       </div>
@@ -200,9 +200,9 @@ $result = $crud->read('SELECT * FROM gamelist');
     <div class="modal fade" id="login-modal" tabindex="-1" aria-labelledby="login-modal-label" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <div id="modal-background-gradient"></div>
-                <div id="modal-background-image"></div>
-                <div id="modal-background-filter"></div>
+                <div class="modal-background-gradient"></div>
+                <div class="modal-background-image"></div>
+                <div class="modal-background-filter"></div>
                 <div class="modal-header">
                     <h2 class="modal-title white-text" id="login-modal-label">Ready for more?</h2>
                 </div>
@@ -234,9 +234,9 @@ $result = $crud->read('SELECT * FROM gamelist');
      <div class="modal fade" id="register-modal" tabindex="-1" aria-labelledby="login-modal-label" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-              <div id="modal-background-gradient"></div>
-              <div id="modal-background-image"></div>
-              <div id="modal-background-filter"></div>
+              <div class="modal-background-gradient"></div>
+              <div class="modal-background-image"></div>
+              <div class="modal-background-filter"></div>
               <div class="modal-header">
                 <h2 class="modal-title white-text" id="login-modal-label">Registration</h2>
               </div>
