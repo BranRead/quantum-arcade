@@ -11,7 +11,7 @@ General Stuff
 
 body {
     height: 100%;
-    /* background: #5D7DE9; */
+    /* background: #1DE0DA; */
     /* background-image: linear-gradient(#5D7DE9, #4F92E6, #3EADE2, #2EC7DE, #1DE0DA); */
 }
 
@@ -45,6 +45,7 @@ h2 {
 }
 
 /*Going to make this a general purpose button*/
+
 #to-games-button, .sm-button {
     background-color: #F25922;
     color: white;
@@ -53,7 +54,6 @@ h2 {
     font-weight: bolder;
     filter: drop-shadow(0px 4px 5px black);
 }
-
 .sm-button {
     width: 160px;
     font-size: 2em;
@@ -62,11 +62,9 @@ h2 {
     border: none;
     filter: drop-shadow(4px 4px 5px black);
 }
-
 #to-games-button:hover, .sm-button:hover {
     filter: drop-shadow(0px 0px 0px);
 }
-
 .orange-banner {
     background-color: #F25922;
     width: 100%;
@@ -74,140 +72,108 @@ h2 {
     padding-top: 1rem;
     padding-bottom: 1rem;
 }
-
-
 /*
-Navbar
-*/
-
+   Navbar
+   */
 nav {
     height: fit-content;
     border-bottom: 2px solid black;
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
 }
-
 #navbar-logo {
     width: 361px;
     height: 233px;
     margin-left: 3rem;
 }
-
 #navbarNav {
     max-width: 40%;
     margin-right: 3rem;
 }
-
 .nav-link {
     font-size: 2.25em;
     font-weight: bolder;
 }
-
 /*
-Body - Main Page
-*/
-
+   Body - Main Page
+   */
 #main-body {
     margin-left: 6rem;
     margin-right: 6rem;
 }
-
 #front-page-img {
     width: 568px;
     height: 546.4px;
     margin-right: 6rem;
 }
-
-/* 
-Quantum Swag
-*/
+/*
+   Quantum Swag
+   */
 #quantum-swag {
     background-color: #1DE0DA;
     text-align: center;
     width: 100%;
     padding-bottom: 2rem;
 }
-
 #quantum-swag > div {
     margin: 2rem 6rem 0rem 6rem;
 }
-
 /* .quantum-swag-link {
-    
-} */
-
+   } */
 .quantum-swag, .quantum-game {
     width: 394px;
     height: 426px;
     border: 2px solid #5E90F2;
     transition: transform .2s;
     border-radius: 30px;
-   
 }
-
 .quantum-game {
     border-color: #000;
 }
-
 .quantum-swag:hover, .quantum-game:hover {
     transform: scale(1.1);
 }
-
 .ms-2 {
-    margin-left: 0rem!important;
+    margin-left: 0rem !important;
 }
-
 /*
-Footer
-*/
-
+   Footer
+   */
 #footer {
     /* background: #1DE0DA; */
     background-image: linear-gradient(#1DE0DA, #2EC7DE, #3EADE2, #4F92E6, #5D7DE9);
     border-top: 2px solid #5E90F2;
 }
-
 #logo-footer-div {
     width: fit-content;
 }
-
 #logo-footer {
     width: 161px;
     height: 129px;
 }
-
 .social-media-link {
     width: 50px;
     height: 50px;
     transition: transform .2s;
 }
-
 .social-media-link:hover {
     transform: scale(1.25);
 }
-
 /*
-Game Selection
-*/
-
-
-
+   Game Selection
+   */
 .game-row-left {
     margin-left: 5rem;
 }
-
-.game-row-left > .game-title{
+.game-row-left > .game-title {
     margin-left: 24rem;
 }
-
 .game-row-right {
     margin-right: 5rem;
 }
-
 .game-row-right > .game-title {
     margin-right: 24rem;
 }
-
 .horizontal-line {
     width: 50%;
     height: 2px;
@@ -215,16 +181,12 @@ Game Selection
     margin-left: auto;
     margin-right: auto;
 }
-
-
 /*
-Modals
-*/
-
+   Modals
+   */
 /*
-Login
-*/
-
+   Login
+   */
 .modal-header {
     z-index: 1;
     background-color: #F25922;
@@ -232,22 +194,17 @@ Login
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
 }
-
 .modal-title {
     margin-left: auto;
     margin-right: auto;
-    
 }
-
 .modal-body {
     padding: 0;
 }
-
 .modal-content {
     border-radius: 30px;
     width: 490px;
 }
-
 #modal-background-gradient {
     background-image: linear-gradient(#1DE0DA, #2EC7DE, #3EADE2, #4F92E6, #5D7DE9);
     border-radius: 30px;
@@ -257,7 +214,6 @@ Login
     bottom: 0;
     left: 0;
 }
-
 #modal-background-image {
     background-image: url("../images/modalBackgroundCropped.png");
     background-size: contain;
@@ -271,7 +227,6 @@ Login
     left: 0;
     border-radius: 30px !important;
 }
-
 #modal-background-filter {
     position: absolute;
     top: 0;
@@ -281,9 +236,7 @@ Login
     background-color: #D9D9D9;
     opacity: 43%;
     border-radius: 30px;
-
 }
-
 #emailLogin, #passwordLogin {
     border-radius: 30px;
     border: none;
