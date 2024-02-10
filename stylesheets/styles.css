@@ -203,18 +203,7 @@ nav {
 /*
    Game Selection
    */
-.game-row-left {
-    margin-left: 5rem;
-}
-.game-row-left > .game-title {
-    margin-left: 24rem;
-}
-.game-row-right {
-    margin-right: 5rem;
-}
-.game-row-right > .game-title {
-    margin-right: 24rem;
-}
+
 .horizontal-line {
     width: 50%;
     height: 2px;
@@ -269,11 +258,10 @@ login
     background-repeat: no-repeat;
     position: absolute;
     /* For some reason changing this top value also changes horizonal alignment of the image */
-    top: 20px;
-    right: 0px;
+    top: 20;
+    right: 0;
     bottom: 0;
     left: 0;
-    border-radius: 30px !important;
 }
 #modal-background-filter {
     position: absolute;
@@ -286,20 +274,14 @@ login
     border-radius: 30px;
 }
 
-/*Leaving this in for now, I think the more general one covers this
-#emailLogin, #passwordLogin {
-*/
-
 .form-input {
 
     border-radius: 30px;
     border: none;
-    padding: 0.5rem;
-    padding-left: 2rem;
+    padding: 0.5rem 0.5rem 0.5rem 2rem;
     margin-top: 2rem;
     font-size: 2em;
 }
-
 
 #profileTitle {
     margin-top: 6rem;

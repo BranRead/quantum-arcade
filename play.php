@@ -260,36 +260,36 @@ $result = $crud->read('SELECT * FROM gamelist');
       <!--End of modal for registration-->
 
     <h1 class="purple-text text-center mt-5">Choose your destiny:</h1>
-    <div class="d-flex flex-column py-5">
+    <div class="container-fluid py-5">
 
             <?php
+            $isFirstOne = true;
             while ($row = $result->fetch_assoc()) {
+                if($isFirstOne){
+                        $isFirstOne = false;
+                    } else {
+                        echo "<div class='horizontal-line'></div> ";
+                    }
                 if ($row['game_id'] % 2 == 0) {
-                    echo "
-                <div class='d-flex flex-row align-items-center justify-content-end game-row-right'>
-                    <div class='game-title'>
-                        <h2>" . $row['title'] . "</h2>
-                        <p>" . $row['description'] . "</p>
-                    </div>
-                    <div class='img-game'>
-                        <a class='quantum-game-link' href='" . $row['game_url'] . "'><img class='quantum-game img-fluid' src='" . $row['image_url'] . "' alt=''></a>
-                    </div>
-                </div>
-                <div class='horizontal-line'></div>";
+                    echo "<div class='row'>
+                                <div class='game-title text-center offset-4 col-lg-4'>
+                                    <h2>" . $row['title'] . "</h2>
+                                    <p>" . $row['description'] . "</p>
+                                </div>
+                                <div class='img-game d-flex justify-content-center col-lg-4'>
+                                    <a class='quantum-game-link' href='" . $row['game_url'] . "'><img class='quantum-game img-fluid' src='" . $row['image_url'] . "' alt=''></a>
+                                </div>
+                          </div>";
                 } else {
-                echo "
-                <div class='d-flex flex-row align-items-center game-row-left'>
-                    
-                    <div class='img-game'>
+                echo "<div class='row'>
+                    <div class='img-game d-flex justify-content-center col-lg-4'>
                         <a class='quantum-game-link' href='" . $row['game_url'] . "'><img class='quantum-game img-fluid' src='" . $row['image_url'] . "' alt=''></a>
                     </div>
-                    <div class='game-title'>
+                    <div class='game-title text-center col-lg-4'>
                         <h2 >" . $row['title'] . "</h2>
                         <p " . $row['description'] . "</p>
                     </div>
-                </div>
-                <div class='horizontal-line'></div>
-                ";
+                </div>";
                 }
             }
             ?>
