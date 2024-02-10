@@ -34,6 +34,15 @@ a:hover {
     color: #4051ed;
 }
 
+.normal-link {
+    text-decoration: none;
+}
+
+.normal-link:hover {
+    /*text-decoration: none;*/
+    color: white;
+}
+
 h1, h2, .nav-link {
     font-weight: bolder;
 }
