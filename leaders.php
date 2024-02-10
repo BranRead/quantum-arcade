@@ -29,7 +29,7 @@
                   <a class="nav-link purple-text" href="play.php">Play</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link purple-text active" aria-current="page" href="leaders.html">Leaders</a>
+                  <a class="nav-link purple-text active" aria-current="page" href="leaders.php">Leaders</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link purple-text" href="#">About Us</a>

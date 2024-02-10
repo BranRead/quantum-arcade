@@ -39,7 +39,7 @@ $result = $crud->read('SELECT * FROM gamelist');
                             <a class="nav-link purple-text active" aria-current="page" href="play.php">Play</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link purple-text" href="#">Merch</a>
+                            <a class="nav-link purple-text" href="leaders.php">Leaders</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link purple-text" href="#">About Us</a>
@@ -51,7 +51,7 @@ $result = $crud->read('SELECT * FROM gamelist');
                 </div>
             </div>
         </nav>
-    </div>
+
 
     <!--Modal for user settings-->
     <div class="modal fade" id="user-settings" tabindex="-1" aria-labelledby="login-modal-label" aria-hidden="true">
@@ -279,12 +279,13 @@ $result = $crud->read('SELECT * FROM gamelist');
                 } else {
                 echo "
                 <div class='d-flex flex-row align-items-center game-row-left'>
+                    
+                    <div class='img-game'>
+                        <a class='quantum-game-link' href='" . $row['game_url'] . "'><img class='quantum-game img-fluid' src='" . $row['image_url'] . "' alt=''></a>
+                    </div>
                     <div class='game-title'>
                         <h2 >" . $row['title'] . "</h2>
                         <p " . $row['description'] . "</p>
-                    </div>
-                    <div class='img-game'>
-                        <a class='quantum-game-link' href='" . $row['game_url'] . "'><img class='quantum-game img-fluid' src='" . $row['image_url'] . "' alt=''></a>
                     </div>
                 </div>
                 <div class='horizontal-line'></div>
@@ -293,33 +294,8 @@ $result = $crud->read('SELECT * FROM gamelist');
             }
             ?>
         </div>
-        <div class="d-flex flex-row align-items-center justify-content-end game-row-right">
-            <div class="game-title">
-                <h2 class="white-text">Game 2</h2>
-            </div>
-            <div class="img-game">
-                <a class="quantum-game-link" href="#"><img class="quantum-game img-fluid" src="images/Coming_soon.png" alt=""></a>
-            </div>
-        </div>
-        <div class="horizontal-line"></div>
-        <div class="d-flex flex-row align-items-center game-row-left">
-            <div class="img-game">
-                <a class="quantum-game-link" href="#"><img class="quantum-game img-fluid" src="images/Coming_soon.png" alt=""></a>
-            </div>
-            <div class="game-title">
-                <h2 class="white-text">Game 3</h2>
-            </div>
-        </div>
-        <div class="horizontal-line"></div>
-        <div class="d-flex flex-row align-items-center justify-content-end game-row-right">
-            <div class="game-title">
-                <h2 class="white-text">Game 4</h2>
-            </div>
-            <div class="img-game">
-                <a class="quantum-game-link" href="#"><img class="quantum-game img-fluid" src="images/Coming_soon.png" alt=""></a>
-            </div>
-        </div>
     </div>
+
     <div id="footer" class="d-flex flex-column align-items-center">
         <div id="logo-footer-div">
             <img id="logo-footer" src="images/fulllogo_transparent.png" alt="Website Logo">
