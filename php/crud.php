@@ -65,29 +65,63 @@ class Crud
             header("location: update-success.html");
             exit;
         } else {
-            die("err: ". $conn->errno);
+            die("err: " . $conn->errno);
         }
     }
 
-    public function delete()
+    public function deleteScores($id)
     {
-        try {
-            $config = new config();
-            $conn = $config->getDBConnection();
+        $config = new config;
+        $conn = $config->getDBConnection();
 
-            $sql = "DELETE FROM users WHERE id = ?";
+        try {
+            $sql = "DELETE FROM scoreleaderboards WHERE user_id = {$id}";
+            $stmt = $conn->stmt_init();
+
+            if (!$stmt->prepare($sql)) {
+                die("err: " . $conn->error);
+            }
+            if ($stmt->execute()) {
+                header("../play.php");
+                exit;
+            } else {
+                die("err: " . $conn->error);
+            }
+        } catch (Exception $e) {
+            die("err: " . $e->getMessage());
+        } finally {
+            $stmt->close();
+            $conn->close();
+        }
+    }
+
+    public function deleteAccount($id)
+    {
+        $config = new config();
+        $conn = $config->getDBConnection();
+
+        try {
+            $sql = "DELETE FROM users WHERE id = {$id}";
             $stmt = $conn->stmt_init();
             if (!$stmt->prepare($sql)) {
                 die("err: " . $conn->error);
             }
             if ($stmt->execute()) {
-                header("location: delete-success.html");
                 exit;
             } else {
                 die("err: " . $conn->errno);
             }
         } catch (Exception $e) {
             die("err: " . $e->getMessage());
+        }
+
+        try {
+            $this->deleteScores($id);
+        } catch (Exception $e) {
+            die("err: " . $e->getMessage());
+        } finally {
+            $stmt->close();
+            $conn->close();
         }
     }
 }
