@@ -1,13 +1,26 @@
 <?php
-    $server = "localhost";
-    $userName = "root";
-    $pass = "";
-    $dbname = "gymbrosdb";
+    class Config
+    {
+        private $server = 'localhost';
+        private $userName = 'root';
+        private $pass = "";
+        private $dbname = 'quantumarcade';
 
-    $conn = new mysqli($server, $userName, $pass, $dbname);
+        public function getDBConnection()
+        {
 
-    if ($conn->connect_errno) {
-        die("Connection Error: " . $conn->connect_errno);
+
+           try {
+                $conn = new mysqli($this->server, $this->userName, $this->pass, $this->dbname);
+                if ($conn->connect_errno) {
+                    die('Connection Error: ' . $conn->connect_errno);
+                }
+
+               return $conn;
+           }
+           catch (Exception $e)
+           {
+               die('Connection Error: ' . $e->getMessage());
+           }
+        }
     }
-
-    return $conn;
