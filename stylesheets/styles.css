@@ -16,7 +16,6 @@ General Stuff
 
 .upper-gradient {
     background-image: linear-gradient(#5D7DE9, #4F92E6, #3EADE2, #2EC7DE, #1DE0DA);
-    padding-bottom: 1rem;
 }
 
 body {
@@ -43,12 +42,15 @@ a:hover {
     color: white;
 }
 
+
+
 h1, h2, .nav-link {
     font-weight: bolder;
 }
 
 h1 {
     font-size: 3em !important;
+    font-weight: bolder;
 }
 
 h2 {
@@ -106,12 +108,18 @@ h2 {
     width: 60%;
 }
 
-.orange-banner {
+.orange-banner, .orange-header {
     background-color: #F25922;
     width: 100%;
     text-align: center;
     padding-top: 1rem;
     padding-bottom: 1rem;
+}
+
+.orange-header {
+    border-bottom: 2px solid black;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
 }
 /*
    Navbar
@@ -203,18 +211,7 @@ nav {
 /*
    Game Selection
    */
-.game-row-left {
-    margin-left: 5rem;
-}
-.game-row-left > .game-title {
-    margin-left: 24rem;
-}
-.game-row-right {
-    margin-right: 5rem;
-}
-.game-row-right > .game-title {
-    margin-right: 24rem;
-}
+
 .horizontal-line {
     width: 50%;
     height: 2px;
@@ -252,8 +249,9 @@ login
 .modal-content {
     border-radius: 30px;
     width: 490px;
+    position: relative;
 }
-#modal-background-gradient {
+.modal-background-gradient {
     background-image: linear-gradient(#1DE0DA, #2EC7DE, #3EADE2, #4F92E6, #5D7DE9);
     border-radius: 30px;
     position: absolute;
@@ -262,20 +260,19 @@ login
     bottom: 0;
     left: 0;
 }
-#modal-background-image {
+.modal-background-image {
     background-image: url("../images/modalBackgroundCropped.png");
     background-size: contain;
     border-radius: 30px;
     background-repeat: no-repeat;
     position: absolute;
     /* For some reason changing this top value also changes horizonal alignment of the image */
-    top: 20px;
-    right: 0px;
+    top: 30px;
+    right: 0;
     bottom: 0;
     left: 0;
-    border-radius: 30px !important;
 }
-#modal-background-filter {
+.modal-background-filter {
     position: absolute;
     top: 0;
     right: 0;
@@ -286,20 +283,13 @@ login
     border-radius: 30px;
 }
 
-/*Leaving this in for now, I think the more general one covers this
-#emailLogin, #passwordLogin {
-*/
-
 .form-input {
-
     border-radius: 30px;
     border: none;
-    padding: 0.5rem;
-    padding-left: 2rem;
+    padding: 0.5rem 0.5rem 0.5rem 2rem;
     margin-top: 2rem;
     font-size: 2em;
 }
-
 
 #profileTitle {
     margin-top: 6rem;
@@ -348,6 +338,9 @@ Leaders
     border: 2px solid black;
     padding: 0;
     position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-bottom: 3rem;
 }
 
 .leaderboard-display-pic {
@@ -355,20 +348,44 @@ Leaders
     height: 75px;
 }
 
-.leaderboard-card-img {
-    border-radius: 30px;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
 table {
-    margin-top: 1rem;
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
+    height: fit-content;
+
     text-align: center;
     font-size: 2rem;
     font-weight: bolder;
     background-color: hsla(0, 0%, 55%, 0.6)!important;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+
+}
+
+.table-row {
+    border-top: 1px solid black;
+    padding: 1rem;
+    height: fit-content;
+}
+
+.table-row > td {
+    padding: 1rem 0;
+    /*border-left: 1px solid black;*/
+    /*border-right: 1px solid black;*/
+}
+
+#contact-text {
+    font-size: 2em;
+    font-weight: bolder;
+}
+
+#contactFormContainer {
+    background-image: url("../images/modalBackgroundCropped.png");
+    background-size: cover;
+    background-repeat: no-repeat;
     border-radius: 30px;
+    border: 2px solid black;
+}
+
+#contact-name {
+    width: 35%;
 }

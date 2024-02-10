@@ -39,27 +39,27 @@ $result = $crud->read('SELECT * FROM gamelist');
                             <a class="nav-link purple-text active" aria-current="page" href="play.php">Play</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link purple-text" href="#">Merch</a>
+                            <a class="nav-link purple-text" href="leaders.php">Leaders</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link purple-text" href="#">About Us</a>
+                            <a class="nav-link purple-text" href="about.php">About Us</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link purple-text" href="#">Contact</a>
+                            <a class="nav-link purple-text" href="contact.php">Contact</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
-    </div>
+
 
     <!--Modal for user settings-->
     <div class="modal fade" id="user-settings" tabindex="-1" aria-labelledby="login-modal-label" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-              <div id="modal-background-gradient"></div>
-              <div id="modal-background-image"></div>
-              <div id="modal-background-filter"></div>
+              <div class="modal-background-gradient"></div>
+              <div class="modal-background-image"></div>
+              <div class="modal-background-filter"></div>
               <div class="modal-header">
                 <h2 class="modal-title white-text" id="login-modal-label">User Settings</h2>
               </div>
@@ -78,9 +78,9 @@ $result = $crud->read('SELECT * FROM gamelist');
       <div class="modal fade" id="password-change-modal" tabindex="-1" aria-labelledby="login-modal-label" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
-            <div id="modal-background-gradient"></div>
-            <div id="modal-background-image"></div>
-            <div id="modal-background-filter"></div>
+            <div class="modal-background-gradient"></div>
+            <div class="modal-background-image"></div>
+            <div class="modal-background-filter"></div>
             <div class="modal-header">
               <h2 class="modal-title white-text" id="login-modal-label">Change Password</h2>
             </div>
@@ -103,9 +103,9 @@ $result = $crud->read('SELECT * FROM gamelist');
     <div class="modal fade" id="reset-scores-modal" tabindex="-1" aria-labelledby="login-modal-label" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-          <div id="modal-background-gradient"></div>
-          <div id="modal-background-image"></div>
-          <div id="modal-background-filter"></div>
+          <div class="modal-background-gradient"></div>
+          <div class="modal-background-image"></div>
+          <div class="modal-background-filter"></div>
           <div class="modal-header warning-banner">
             <h2 class="modal-title white-text" id="login-modal-label">&#9888 Reset Scores &#9888</h2>
           </div>
@@ -128,9 +128,9 @@ $result = $crud->read('SELECT * FROM gamelist');
 <div class="modal fade" id="reset-scores-confirm-modal" tabindex="-1" aria-labelledby="login-modal-label" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
-      <div id="modal-background-gradient"></div>
-      <div id="modal-background-image"></div>
-      <div id="modal-background-filter"></div>
+      <div class="modal-background-gradient"></div>
+      <div class="modal-background-image"></div>
+      <div class="modal-background-filter"></div>
       <div class="modal-header">
         <h2 class="modal-title white-text" id="login-modal-label">&#9888 Warning &#9888</h2>
       </div>
@@ -152,9 +152,9 @@ $result = $crud->read('SELECT * FROM gamelist');
    <div class="modal fade" id="delete-account-modal" tabindex="-1" aria-labelledby="login-modal-label" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
-        <div id="modal-background-gradient"></div>
-        <div id="modal-background-image"></div>
-        <div id="modal-background-filter"></div>
+        <div class="modal-background-gradient"></div>
+        <div class="modal-background-image"></div>
+        <div class="modal-background-filter"></div>
         <div class="modal-header warning-banner">
           <h2 class="modal-title white-text" id="login-modal-label">&#9888 Delete Account &#9888</h2>
         </div>
@@ -177,9 +177,9 @@ $result = $crud->read('SELECT * FROM gamelist');
 <div class="modal fade" id="delete-account-confirm-modal" tabindex="-1" aria-labelledby="login-modal-label" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
-      <div id="modal-background-gradient"></div>
-      <div id="modal-background-image"></div>
-      <div id="modal-background-filter"></div>
+      <div class="modal-background-gradient"></div>
+      <div class="modal-background-image"></div>
+      <div class="modal-background-filter"></div>
       <div class="modal-header">
         <h2 class="modal-title white-text" id="login-modal-label">&#9888 Warning &#9888</h2>
       </div>
@@ -200,9 +200,9 @@ $result = $crud->read('SELECT * FROM gamelist');
     <div class="modal fade" id="login-modal" tabindex="-1" aria-labelledby="login-modal-label" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <div id="modal-background-gradient"></div>
-                <div id="modal-background-image"></div>
-                <div id="modal-background-filter"></div>
+                <div class="modal-background-gradient"></div>
+                <div class="modal-background-image"></div>
+                <div class="modal-background-filter"></div>
                 <div class="modal-header">
                     <h2 class="modal-title white-text" id="login-modal-label">Ready for more?</h2>
                 </div>
@@ -234,9 +234,9 @@ $result = $crud->read('SELECT * FROM gamelist');
      <div class="modal fade" id="register-modal" tabindex="-1" aria-labelledby="login-modal-label" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-              <div id="modal-background-gradient"></div>
-              <div id="modal-background-image"></div>
-              <div id="modal-background-filter"></div>
+              <div class="modal-background-gradient"></div>
+              <div class="modal-background-image"></div>
+              <div class="modal-background-filter"></div>
               <div class="modal-header">
                 <h2 class="modal-title white-text" id="login-modal-label">Registration</h2>
               </div>
@@ -260,66 +260,42 @@ $result = $crud->read('SELECT * FROM gamelist');
       <!--End of modal for registration-->
 
     <h1 class="purple-text text-center mt-5">Choose your destiny:</h1>
-    <div class="d-flex flex-column py-5">
+    <div class="container-fluid py-5">
 
             <?php
+            $isFirstOne = true;
             while ($row = $result->fetch_assoc()) {
+                if($isFirstOne){
+                        $isFirstOne = false;
+                    } else {
+                        echo "<div class='horizontal-line'></div> ";
+                    }
                 if ($row['game_id'] % 2 == 0) {
-                    echo "
-                <div class='d-flex flex-row align-items-center justify-content-end game-row-right'>
-                    <div class='game-title'>
-                        <h2>" . $row['title'] . "</h2>
-                        <p>" . $row['description'] . "</p>
-                    </div>
-                    <div class='img-game'>
+                    echo "<div class='row'>
+                                <div class='game-title text-center offset-4 col-lg-4'>
+                                    <h2>" . $row['title'] . "</h2>
+                                    <p>" . $row['description'] . "</p>
+                                </div>
+                                <div class='img-game d-flex justify-content-center col-lg-4'>
+                                    <a class='quantum-game-link' href='" . $row['game_url'] . "'><img class='quantum-game img-fluid' src='" . $row['image_url'] . "' alt=''></a>
+                                </div>
+                          </div>";
+                } else {
+                echo "<div class='row'>
+                    <div class='img-game d-flex justify-content-center col-lg-4'>
                         <a class='quantum-game-link' href='" . $row['game_url'] . "'><img class='quantum-game img-fluid' src='" . $row['image_url'] . "' alt=''></a>
                     </div>
-                </div>
-                <div class='horizontal-line'></div>";
-                } else {
-                echo "
-                <div class='d-flex flex-row align-items-center game-row-left'>
-                    <div class='game-title'>
+                    <div class='game-title text-center col-lg-4'>
                         <h2 >" . $row['title'] . "</h2>
                         <p " . $row['description'] . "</p>
                     </div>
-                    <div class='img-game'>
-                        <a class='quantum-game-link' href='" . $row['game_url'] . "'><img class='quantum-game img-fluid' src='" . $row['image_url'] . "' alt=''></a>
-                    </div>
-                </div>
-                <div class='horizontal-line'></div>
-                ";
+                </div>";
                 }
             }
             ?>
         </div>
-        <div class="d-flex flex-row align-items-center justify-content-end game-row-right">
-            <div class="game-title">
-                <h2 class="white-text">Game 2</h2>
-            </div>
-            <div class="img-game">
-                <a class="quantum-game-link" href="#"><img class="quantum-game img-fluid" src="images/Coming_soon.png" alt=""></a>
-            </div>
-        </div>
-        <div class="horizontal-line"></div>
-        <div class="d-flex flex-row align-items-center game-row-left">
-            <div class="img-game">
-                <a class="quantum-game-link" href="#"><img class="quantum-game img-fluid" src="images/Coming_soon.png" alt=""></a>
-            </div>
-            <div class="game-title">
-                <h2 class="white-text">Game 3</h2>
-            </div>
-        </div>
-        <div class="horizontal-line"></div>
-        <div class="d-flex flex-row align-items-center justify-content-end game-row-right">
-            <div class="game-title">
-                <h2 class="white-text">Game 4</h2>
-            </div>
-            <div class="img-game">
-                <a class="quantum-game-link" href="#"><img class="quantum-game img-fluid" src="images/Coming_soon.png" alt=""></a>
-            </div>
-        </div>
     </div>
+
     <div id="footer" class="d-flex flex-column align-items-center">
         <div id="logo-footer-div">
             <img id="logo-footer" src="images/fulllogo_transparent.png" alt="Website Logo">
