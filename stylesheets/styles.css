@@ -5,8 +5,18 @@ General Stuff
     font-family: 'Gemunu Libre', sans-serif;
 }
 
+.link-within-button {
+    color: white;
+    text-decoration: none;
+}
+
+.link-within-button:hover {
+    color: white;
+}
+
 .upper-gradient {
     background-image: linear-gradient(#5D7DE9, #4F92E6, #3EADE2, #2EC7DE, #1DE0DA);
+    padding-bottom: 1rem;
 }
 
 body {
@@ -22,6 +32,15 @@ a {
 
 a:hover {
     color: #4051ed;
+}
+
+.normal-link {
+    text-decoration: none;
+}
+
+.normal-link:hover {
+    /*text-decoration: none;*/
+    color: white;
 }
 
 h1, h2, .nav-link {
@@ -44,9 +63,16 @@ h2 {
     color: white;
 }
 
-/*Going to make this a general purpose button*/
+.orange-text {
+    color:#F25922;
+}
 
-#to-games-button, .sm-button {
+.warning-banner, .bg-red-button {
+    background-color: #FC0505 !important;
+}
+
+/*Going to make this a general purpose button*/
+#to-games-button, .sm-button, .sm-button-settings, .bg-red-button {
     background-color: #F25922;
     color: white;
     border-radius: 30px;
@@ -54,7 +80,8 @@ h2 {
     font-weight: bolder;
     filter: drop-shadow(0px 4px 5px black);
 }
-.sm-button {
+
+.sm-button, .sm-button-settings, .bg-red-button {
     width: 160px;
     font-size: 2em;
     padding-top: 0.25rem;
@@ -62,9 +89,23 @@ h2 {
     border: none;
     filter: drop-shadow(4px 4px 5px black);
 }
+
 #to-games-button:hover, .sm-button:hover {
     filter: drop-shadow(0px 0px 0px);
 }
+
+.sm-button-settings {
+    width: 300px;
+}
+
+#to-games-button:hover, .sm-button:hover, .sm-button-settings:hover, .bg-red-button:hover {
+    filter: drop-shadow(0px 0px 0px);
+}
+
+.bg-red-button {
+    width: 60%;
+}
+
 .orange-banner {
     background-color: #F25922;
     width: 100%;
@@ -87,7 +128,7 @@ nav {
     margin-left: 3rem;
 }
 #navbarNav {
-    max-width: 40%;
+    max-width: fit-content;
     margin-right: 3rem;
 }
 .nav-link {
@@ -184,13 +225,20 @@ nav {
 /*
    Modals
    */
+
 /*
-   Login
-   */
-.modal-header {
+login
+*/
+
+.modal-content {
+    height: 670px;
+    border: 2px solid black;
+}
+
+.modal-header, .header-leaderboard {
     z-index: 1;
     background-color: #F25922;
-    border-bottom: none;
+    border-bottom: 2px solid black;
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
 }
@@ -221,7 +269,7 @@ nav {
     background-repeat: no-repeat;
     position: absolute;
     /* For some reason changing this top value also changes horizonal alignment of the image */
-    top: 50px;
+    top: 20px;
     right: 0px;
     bottom: 0;
     left: 0;
@@ -237,11 +285,90 @@ nav {
     opacity: 43%;
     border-radius: 30px;
 }
+
+/*Leaving this in for now, I think the more general one covers this
 #emailLogin, #passwordLogin {
+*/
+
+.form-input {
+
     border-radius: 30px;
     border: none;
     padding: 0.5rem;
     padding-left: 2rem;
     margin-top: 2rem;
     font-size: 2em;
+}
+
+
+#profileTitle {
+    margin-top: 6rem;
+    padding: 1rem;
+}
+
+#profileTitle > img:hover {
+    border: 4px solid white;
+    border-radius: 100px;
+    cursor: pointer;
+}
+
+#profileTitle > img {
+    width: 100px;
+    height: 100px;
+}
+
+#profileTitle > p {
+    margin-bottom: 0;
+    margin-left: 1rem;
+}
+
+.confirm-modal {
+    background-color: white;
+    color: #FC0505;
+    border-radius: 30px;
+    padding: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    font-size: 2em;
+    font-weight: bolder;
+}
+
+/*
+Leaders
+*/
+
+#leadersTitle {
+    z-index: 1;
+    font-size: 4em;
+    font-weight: bolder;
+}
+
+.leaderboard-card {
+    border-radius: 30px;
+    border: 2px solid black;
+    padding: 0;
+    position: relative;
+}
+
+.leaderboard-display-pic {
+    width: 75px;
+    height: 75px;
+}
+
+.leaderboard-card-img {
+    border-radius: 30px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+table {
+    margin-top: 1rem;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bolder;
+    background-color: hsla(0, 0%, 55%, 0.6)!important;
+    border-radius: 30px;
 }
