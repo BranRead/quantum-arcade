@@ -261,49 +261,38 @@ $result = $crud->read('SELECT * FROM gamelist');
 
     <h1 class="purple-text text-center mt-5">Choose your destiny:</h1>
     <div class="d-flex flex-column py-5">
-        <div class="d-flex flex-row align-items-center game-row-left">
-            <!--
-            The issue lies on line 93, because it repeats the same classes.
-            have to figure out a way to set classes based on iteration,
-            or come up with a different card system thats repeatable.
-            I left the proceeding 3 iterations below the while loop,
-            so we might be able to do something with the id's from the table
-            i.e if id % 1 then game row right else game row left
 
-            it kind of worked. Im not sure if its the '' or "" screwing things up. will revisit.
-            it wasnt.
-            -->
             <?php
             while ($row = $result->fetch_assoc()) {
                 if ($row['game_id'] % 2 == 0) {
-                    echo "{$row['game_id']}
-                <div class=d-flex 'flex-row align-items-center justify-content-end game-row-right'>
+                    echo "
+                <div class='d-flex flex-row align-items-center justify-content-end game-row-right'>
                     <div class='game-title'>
-                        <h2 >{$row['title']}</h2>
-                        <p >{$row['description']}</p>
+                        <h2>" . $row['title'] . "</h2>
+                        <p>" . $row['description'] . "</p>
                     </div>
                     <div class='img-game'>
-                        <a class='quantum-game-link' href='{$row['game_url']}'><img class='quantum-game img-fluid' src='{$row['image_url']}' alt=''></a>
+                        <a class='quantum-game-link' href='" . $row['game_url'] . "'><img class='quantum-game img-fluid' src='" . $row['image_url'] . "' alt=''></a>
                     </div>
                 </div>
                 <div class='horizontal-line'></div>";
                 } else {
-                echo "{$row['game_id']}
+                echo "
                 <div class='d-flex flex-row align-items-center game-row-left'>
                     <div class='game-title'>
-                        <h2 >{$row['title']}</h2>
-                        <p >{$row['description']}</p>
+                        <h2 >" . $row['title'] . "</h2>
+                        <p " . $row['description'] . "</p>
                     </div>
                     <div class='img-game'>
-                        <a class='quantum-game-link' href='{$row['game_url']}'><img class='quantum-game img-fluid' src='{$row['image_url']}' alt=''></a>
+                        <a class='quantum-game-link' href='" . $row['game_url'] . "'><img class='quantum-game img-fluid' src='" . $row['image_url'] . "' alt=''></a>
                     </div>
                 </div>
+                <div class='horizontal-line'></div>
                 ";
                 }
             }
             ?>
         </div>
-        <div class="horizontal-line"></div>
         <div class="d-flex flex-row align-items-center justify-content-end game-row-right">
             <div class="game-title">
                 <h2 class="white-text">Game 2</h2>

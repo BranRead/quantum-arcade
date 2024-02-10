@@ -1,10 +1,8 @@
 <?php
-use PHPUnit\Framework\TestCase;
-use config.php;
-use Crud.php;
-
 namespace QuantumArcade\Tests;
 
+use PHPUnit\Framework\TestCase;
+require_once "../php/Crud.php";
 class CrudTest extends TestCase
 {
     public function testGetDBConnection()
