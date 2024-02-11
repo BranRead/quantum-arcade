@@ -20,8 +20,15 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div id="profileTitle" class="d-flex flex-row align-items-center">
-                <img src="images/default-profile-pic.png" alt="" data-bs-toggle=modal data-bs-target="#user-settings">
-                <p class="text-center white-text">UserName</p>
+                <img class="displayPic" src="images/default-profile-pic.png" alt="" data-bs-toggle=modal data-bs-target="#user-settings">
+                <p id="displayedUsername" class="text-center white-text">UserName</p>
+                <div class="mx-2 d-flex flex-row align-items-center">
+                    <form id="changeUsernameForm" method="post" action="">
+                        <input id="changeUsernameInput" class="form-input-small" name="changeUsernameInput" placeholder="">
+                        <button class="xtra-sm-button" type="submit">Submit</button>
+                    </form>
+                </div>
+                <img id="changeUsername" src="/images/settingsIcon.png" alt="Settings">
             </div>
             <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
@@ -32,7 +39,7 @@
                         <a class="nav-link purple-text" href="leaders.php">Leaders</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link purple-text" href="about.html">About Us</a>
+                        <a class="nav-link purple-text" href="about.php">About Us</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link purple-text active" aria-current="page" href="contact.php">Contact</a>
