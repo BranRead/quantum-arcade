@@ -389,3 +389,15 @@ table {
 #contact-name {
     width: 35%;
 }
+
+#omegaLogoAbout {
+    max-width: 100%;
+}
+
+#about-us-row {
+    height: fit-content;
+}
+
+.team-about-card {
+    width: 20%;
+}

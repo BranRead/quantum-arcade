@@ -32,7 +32,7 @@
                         <a class="nav-link purple-text" href="leaders.php">Leaders</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link purple-text" href="#">About Us</a>
+                        <a class="nav-link purple-text" href="about.html">About Us</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link purple-text active" aria-current="page" href="contact.php">Contact</a>

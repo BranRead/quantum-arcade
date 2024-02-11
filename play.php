@@ -45,7 +45,7 @@ $games = $crud->read('SELECT * FROM gamelist');
                             <a class="nav-link purple-text" href="leaders.php">Leaders</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link purple-text" href="about.php">About Us</a>
+                            <a class="nav-link purple-text" href="about.html">About Us</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link purple-text" href="contact.php">Contact</a>
@@ -212,8 +212,8 @@ $games = $crud->read('SELECT * FROM gamelist');
                 <div class="modal-body">
                     <form action="#" method="post">
                         <div class="d-flex flex-column align-items-center">
-                            <input type="email" id="emailLogin" name="email" placeholder="email" value="<?php htmlspecialchars(isset($_POST["email"]) ? $_POST["email"] : "")?>">
-                            <input type="password" id="passwordLogin" name="password" placeholder="password">
+                            <input type="email" id="emailLogin" class="form-input" name="email" placeholder="email" value="<?php htmlspecialchars(isset($_POST["email"]) ? $_POST["email"] : "")?>">
+                            <input type="password" id="passwordLogin" class="form-input" name="password" placeholder="password">
                             <div class="d-flex flex-row align-items-center justify-content-between mt-3">
                                 <div class="me-4"><a href="#">Forgot Password?</a></div>
                                 <div><button class="sm-button ms-2" type="submit">Login</button></div>
