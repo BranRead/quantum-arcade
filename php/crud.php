@@ -1,14 +1,12 @@
 <?php
 
 require_once "config.php";
-class Crud
+class crud
 {
     public function create($data_array, $table)
     {
         try {
-
-            $config = new config;
-            $conn = $config->getDBConnection();
+            $conn = (new config)->getDBConnection();
 
             $columns = implode(", ", array_keys($data_array));
             $place_holders = str_repeat("?, ", count($data_array));
@@ -25,7 +23,7 @@ class Crud
             $stmt->bind_param("sss", $data_array["name"], $data_array["email"], $data_array["passHash"]);
 
             if ($stmt->execute()) {
-                header("location: signup-success.html");
+                header("location: ../play.php");
                 exit;
             } else {
                 if ($conn->errno === 1062) {
@@ -49,6 +47,7 @@ class Crud
         } catch (Exception $e) {
             die("err: " . $e->getMessage());
         }
+
     }
 
     public function update()
@@ -107,25 +106,18 @@ class Crud
                 die("err: " . $conn->error);
             }
             if ($stmt->execute()) {
+                $this->deleteScores($id);
                 exit;
             } else {
                 die("err: " . $conn->errno);
             }
-        } catch (Exception $e) {
-            die("err: " . $e->getMessage());
-        }
 
-        try {
-            $this->deleteScores($id);
         } catch (Exception $e) {
             die("err: " . $e->getMessage());
-        } finally {
-            $stmt->close();
-            $conn->close();
         }
     }
 
-    protected function createSessionID()
+    public function createSessionID()
     {
         $length = 32;
         // Define the characters allowed in the session ID

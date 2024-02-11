@@ -1,10 +1,13 @@
 <?php
-
 session_start();
 require_once "php/crud.php";
+require_once "php/login.php";
 
 $crud = new crud();
-$result = $crud->read('SELECT * FROM gamelist');
+
+$isValid = (new login)->logUserIn();
+
+$games = $crud->read('SELECT * FROM gamelist');
 ?>
 <!doctype html>
 <html lang="en">
@@ -30,7 +33,7 @@ $result = $crud->read('SELECT * FROM gamelist');
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div id="profileTitle" class="d-flex flex-row align-items-center">
-                    <img src="images/default-profile-pic.png" alt="" data-bs-toggle=modal data-bs-target="#user-settings">
+                    <img src="images/default-profile-pic.png" alt="" data-bs-toggle=modal data-bs-target=<?php if(!isset($_SESSION['userID'])) : echo "#login-modal"; else : echo "#user-settings"; endif;?>>
                     <p class="text-center white-text">UserName</p>
                 </div>
                 <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
@@ -65,7 +68,7 @@ $result = $crud->read('SELECT * FROM gamelist');
               </div>
               <div class="modal-body d-flex flex-column justify-content-center align-items-center">
                   <button class="white-text sm-button-settings my-3" data-bs-toggle=modal data-bs-target="#password-change-modal">Change Password</button>
-                  <button class="white-text sm-button-settings my-3">Sign Out</button>
+                  <a href="php/logout.php"><button class="white-text sm-button-settings my-3">Sign Out</button></a>
                   <button class="white-text sm-button-settings my-3" data-bs-toggle=modal data-bs-target="#reset-scores-modal">Reset All Scores</button>
                   <button class="white-text sm-button-settings my-3" data-bs-toggle=modal data-bs-target="#delete-account-modal">Delete Account</button>
               </div>
@@ -209,7 +212,7 @@ $result = $crud->read('SELECT * FROM gamelist');
                 <div class="modal-body">
                     <form action="#" method="post">
                         <div class="d-flex flex-column align-items-center">
-                            <input type="email" id="emailLogin" name="email" placeholder="email">
+                            <input type="email" id="emailLogin" name="email" placeholder="email" value="<?php htmlspecialchars(isset($_POST["email"]) ? $_POST["email"] : "")?>">
                             <input type="password" id="passwordLogin" name="password" placeholder="password">
                             <div class="d-flex flex-row align-items-center justify-content-between mt-3">
                                 <div class="me-4"><a href="#">Forgot Password?</a></div>
@@ -222,12 +225,13 @@ $result = $crud->read('SELECT * FROM gamelist');
                             <h2 class="white-text">Looking to get started?</h2>
                         </div>
                         <h2 class="white-text">Press start to join the fray</h2>
-                        <button class="sm-button my-5" type="button">Start</button>
+                        <button class="sm-button my-5" type="button" data-bs-toggle=modal data-bs-target="#register-modal" onclick="validateSignIn()">Start</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
     <!--End of modal for login-->
 
      <!--Modal for registration-->
@@ -241,18 +245,17 @@ $result = $crud->read('SELECT * FROM gamelist');
                 <h2 class="modal-title white-text" id="login-modal-label">Registration</h2>
               </div>
               <div class="modal-body">
-                  <form action="#" method="post">
+                  <form action="/php/processSignUp.php" method="post">
                       <div class="d-flex flex-column align-items-center">
-                          <input type="email" id="emailRegister" class="form-input" name="email" placeholder="email">
-                          <input type="text" id="userNameRegister" class="form-input" name="username" placeholder="username">
-                          <input type="password" id="passwordRegister" class="form-input" name="password" placeholder="password">
-                          <input type="password" id="passwordRegisterConfirm" class="form-input" name="passwordConfirm" placeholder="confirm password">
+                          <input type="email" id="emailRegister" class="form-input" name="email" placeholder="email" required>
+                          <input type="text" id="userNameRegister" class="form-input" name="username" placeholder="username" required>
+                          <input type="password" id="passwordRegister" class="form-input" name="password" placeholder="password" required>
+                          <input type="password" id="passwordRegisterConfirm" class="form-input" name="passwordConfirm" placeholder="confirm password" required>
                       </div>
-                  </form>
-                  <div class="d-flex flex-column align-items-center">
-                      
-                      <button class="sm-button my-5" type="button">Submit</button>
-                  </div>
+                      <div class="d-flex flex-column align-items-center">
+                          <button class="sm-button my-5" type="submit" onclick="return validateSignUp()">Submit</button>
+                      </div>
+                 </form>
               </div>
             </div>
           </div>
@@ -264,7 +267,7 @@ $result = $crud->read('SELECT * FROM gamelist');
 
             <?php
             $isFirstOne = true;
-            while ($row = $result->fetch_assoc()) {
+            while ($row = $games->fetch_assoc()) {
                 if($isFirstOne){
                         $isFirstOne = false;
                     } else {
@@ -286,8 +289,8 @@ $result = $crud->read('SELECT * FROM gamelist');
                         <a class='quantum-game-link' href='" . $row['game_url'] . "'><img class='quantum-game img-fluid' src='" . $row['image_url'] . "' alt=''></a>
                     </div>
                     <div class='game-title text-center col-lg-4'>
-                        <h2 >" . $row['title'] . "</h2>
-                        <p " . $row['description'] . "</p>
+                        <h2>" . $row['title'] . "</h2>
+                        <p>" . $row['description'] . "</p>
                     </div>
                 </div>";
                 }
@@ -311,6 +314,7 @@ $result = $crud->read('SELECT * FROM gamelist');
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="scripts/script.js"></script>
+    <script src="scripts/validation.js"></script>
 </body>
 
 </html>
