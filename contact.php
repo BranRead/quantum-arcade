@@ -54,7 +54,7 @@
         <div class="horizontal-line"></div>
         <div class="row mt-3">
 
-            <div id="contact-text"class="col-lg-5 white-text  offset-lg-1 ">
+            <div id="contact-text" class="col-lg-5 white-text  offset-lg-1 ">
                 <p>Need to get in touch with the Quantum Arcade team? We're just a pixel away!</p>
                 <div>
                     What's on your mind?
@@ -67,6 +67,7 @@
                 </div>
                 <p>Use the form over there to send your signal, and we'll beam back a response faster than you can say "high score"! </p>
                 <p>P.S. If you spot any oddities on our site, blame our virtual raccoon, "Buggy." He's mischievous, but we love him! 🦝</p>
+                <canvas id="buggyScreen"></canvas>
             </div>
 
             <div class="col-lg-5">
