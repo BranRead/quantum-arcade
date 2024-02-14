@@ -33,7 +33,7 @@ require_once "php/updateUsername.php";
                 <div class="mx-2 d-flex flex-row align-items-center">
                     <form id="changeUsernameForm" method="post" action="php/updateUsername.php">
                         <input id="changeUsernameInput" class="form-input-small" name="changeUsernameInput" placeholder="">
-                        <button class="xtra-sm-button" value="about.php" type="submit">Submit</button>
+                        <button class="xtra-sm-button"  name="location"  value="about.php" type="submit">Submit</button>
                     </form>
                 </div>
                 <img id="changeUsername" src="/images/settingsIcon.png" alt="Settings">
