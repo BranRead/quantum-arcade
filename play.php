@@ -33,7 +33,7 @@ $games = $crud->read('SELECT * FROM gamelist');
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div id="profileTitle" class="d-flex flex-row align-items-center">
-                    <img class="displayPic" src="images/default-profile-pic.png" alt="" data-bs-toggle=modal data-bs-target="#user-settings">
+                    <img class="displayPic" src="images/default-profile-pic.png" alt="" data-bs-toggle=modal data-bs-target=<?php if(!isset($_SESSION['userID'])) : echo "#login-modal"; else : echo "#user-settings"; endif;?>>
                     <p id="displayedUsername" class="text-center white-text">UserName</p>
                     <div class="mx-2 d-flex flex-row align-items-center">
                         <form id="changeUsernameForm" method="post" action="">
@@ -223,7 +223,7 @@ $games = $crud->read('SELECT * FROM gamelist');
                             <input type="password" id="passwordLogin" class="form-input" name="password" placeholder="password">
                             <div class="d-flex flex-row align-items-center justify-content-between mt-3">
                                 <div class="me-4"><a href="#">Forgot Password?</a></div>
-                                <div><button class="sm-button ms-2" type="submit">Login</button></div>
+                                <div><button class="sm-button ms-2" type="submit" onclick="validateSignIn()">Login</button></div>
                             </div>
                         </div>
                     </form>
@@ -232,7 +232,7 @@ $games = $crud->read('SELECT * FROM gamelist');
                             <h2 class="white-text">Looking to get started?</h2>
                         </div>
                         <h2 class="white-text">Press start to join the fray</h2>
-                        <button class="sm-button my-5" type="button" data-bs-toggle=modal data-bs-target="#register-modal" onclick="validateSignIn()">Start</button>
+                        <button class="sm-button my-5" type="button" data-bs-toggle=modal data-bs-target="#register-modal">Start</button>
                     </div>
                 </div>
             </div>
