@@ -5,19 +5,23 @@ let animationID;
 // The function to allow changing username right in the profile card
 
 document.getElementById("changeUsername").addEventListener("click", () => {
-    // console.log("Firing")
-    let username = document.getElementById("displayedUsername").textContent;
-    document.getElementById("displayedUsername").style.display = "none";
+    let userNameDisplay = document.getElementById("displayedUsername");
+    if(userNameDisplay.style.display === "none"){
+        document.getElementById("changeUsernameForm").style.display = "none";
+        userNameDisplay.style.display = "block";
+    } else {
+        userNameDisplay.style.display = "none";
+        let username = userNameDisplay.textContent;
 
-    document.getElementById("changeUsernameForm").style.display = "block";
-    document.getElementById("changeUsernameInput").placeholder = username;
+        document.getElementById("changeUsernameForm").style.display = "block";
+        document.getElementById("changeUsernameInput").placeholder = username;
+    }
 })
 
 
 const canvas = document.getElementById("buggyScreen");
 
 if(canvas != null) {
-    console.log("firing");
     const context = canvas.getContext("2d");
     canvas.width = 700;
     canvas.height = 100;

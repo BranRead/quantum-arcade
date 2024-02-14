@@ -1,7 +1,9 @@
 <?php
-session_start();
+// This isn't needed since it's done on updateUsername.php. That file won't fun unless it's called there.
+//session_start();
 require_once "php/crud.php";
 require_once "php/login.php";
+require_once "php/updateUsername.php";
 
 $crud = new crud();
 
@@ -36,9 +38,9 @@ $games = $crud->read('SELECT * FROM gamelist');
                     <img class="displayPic" src="images/default-profile-pic.png" alt="" data-bs-toggle=modal data-bs-target=<?php if(!isset($_SESSION['userID'])) : echo "#login-modal"; else : echo "#user-settings"; endif;?>>
                     <p id="displayedUsername" class="text-center white-text"><?php if(isset($_SESSION['userID'])) : echo $_SESSION['userName']; else : echo "UserName"; endif;?></p>
                     <div class="mx-2 d-flex flex-row align-items-center">
-                        <form id="changeUsernameForm" method="post" action="">
+                        <form id="changeUsernameForm" method="post" action="php/updateUsername.php">
                             <input id="changeUsernameInput" class="form-input-small" name="changeUsernameInput" placeholder="">
-                            <button class="xtra-sm-button" type="submit">Submit</button>
+                            <button class="xtra-sm-button" name="location" value="play.php" type="submit">Submit</button>
                         </form>
                     </div>
                     <img id="changeUsername" src="/images/settingsIcon.png" alt="Settings">
@@ -122,8 +124,8 @@ $games = $crud->read('SELECT * FROM gamelist');
           <div class="modal-body d-flex flex-column justify-content-center align-items-center">
             <form action="#" method="post">
               <div class="d-flex flex-column align-items-center">
-                <input type="password" id="password" class="form-input" name="password" placeholder="Password">
-                <input type="password" id="passwordConfirm" class="form-input" name="passwordConfirm" placeholder="Confirm Password">
+                <input type="password" id="passwordResetScores" class="form-input" name="password" placeholder="Password">
+                <input type="password" id="passwordConfirmResetScores" class="form-input" name="passwordConfirm" placeholder="Confirm Password">
                 
               </div>
           </form>

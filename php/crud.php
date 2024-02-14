@@ -68,6 +68,25 @@ class crud
         }
     }
 
+    public function updateUsername($username, $userID, $location)
+    {
+        $config = new config();
+        $conn = $config->getDBConnection();
+
+        $sql = "UPDATE useraccounts SET username = '{$username}' WHERE user_id = {$userID}";
+        $stmt = $conn->stmt_init();
+        if (!$stmt->prepare($sql)) {
+            die("err: " . $conn->error);
+        }
+        if ($stmt->execute()) {
+            $_SESSION["userName"] = $username;
+            header("location: ../" . $location);
+            exit;
+        } else {
+            die("err: " . $conn->errno);
+        }
+    }
+
     public function deleteScores($id)
     {
         $config = new config;
