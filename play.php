@@ -34,7 +34,7 @@ $games = $crud->read('SELECT * FROM gamelist');
                 </button>
                 <div id="profileTitle" class="d-flex flex-row align-items-center">
                     <img class="displayPic" src="images/default-profile-pic.png" alt="" data-bs-toggle=modal data-bs-target=<?php if(!isset($_SESSION['userID'])) : echo "#login-modal"; else : echo "#user-settings"; endif;?>>
-                    <p id="displayedUsername" class="text-center white-text">UserName</p>
+                    <p id="displayedUsername" class="text-center white-text"><?php if(isset($_SESSION['userID'])) : echo $_SESSION['userName']; else : echo "UserName"; endif;?></p>
                     <div class="mx-2 d-flex flex-row align-items-center">
                         <form id="changeUsernameForm" method="post" action="">
                             <input id="changeUsernameInput" class="form-input-small" name="changeUsernameInput" placeholder="">
