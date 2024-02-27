@@ -3,9 +3,13 @@ session_start();
 require_once "php/crud.php";
 require_once "php/login.php";
 
+$isValid = false;
 $crud = new crud();
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $isValid = (new login)->logUserIn();
+}
 
-$isValid = (new login)->logUserIn();
+
 
 $games = $crud->read('SELECT * FROM gamelist');
 ?>
@@ -159,6 +163,7 @@ $games = $crud->read('SELECT * FROM gamelist');
 
 
    <!--Modal for deleting account-->
+
    <div class="modal fade" id="delete-account-modal" tabindex="-1" aria-labelledby="login-modal-label" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -207,6 +212,7 @@ $games = $crud->read('SELECT * FROM gamelist');
 <!--End of modal for deleting account verification-->
 
     <!--Modal for login-->
+    <?php if (!$isValid): ?>
     <div class="modal fade" id="login-modal" tabindex="-1" aria-labelledby="login-modal-label" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -219,7 +225,7 @@ $games = $crud->read('SELECT * FROM gamelist');
                 <div class="modal-body">
                     <form action="#" method="post">
                         <div class="d-flex flex-column align-items-center">
-                            <input type="email" id="emailLogin" class="form-input" name="email" placeholder="email" value="<?php htmlspecialchars(isset($_POST["email"]) ? $_POST["email"] : "")?>">
+                            <input type="email" id="emailLogin" class="form-input" name="email" placeholder="email" value="<?php htmlspecialchars(isset($_POST["emailLogin"]) ? $_POST["emailLogin"] : "")?>">
                             <input type="password" id="passwordLogin" class="form-input" name="password" placeholder="password">
                             <div class="d-flex flex-row align-items-center justify-content-between mt-3">
                                 <div class="me-4"><a href="#">Forgot Password?</a></div>
@@ -267,6 +273,7 @@ $games = $crud->read('SELECT * FROM gamelist');
             </div>
           </div>
       </div>
+      <?php endif; ?>
       <!--End of modal for registration-->
 
     <h1 class="purple-text text-center mt-5">Choose your destiny:</h1>
