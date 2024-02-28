@@ -225,6 +225,8 @@ $foxbound = $crud->read($foxboundSQL);
       <div class="container-fluid">
             
         <div class="row justify-content-around my-3">
+
+
             <div class="col-lg-5 leaderboard-card" style="background-image: url('/images/gameimages/battyFarming.png')">
                 <div class="header-leaderboard text-center white-text"><h2>Batty Farming</h2></div>
                 <table class="leaderboard-table white-text">
@@ -278,6 +280,79 @@ $foxbound = $crud->read($foxboundSQL);
                     $isLeader = true;
                     $rank = 1;
                     while ($row = $bolt->fetch_assoc()) {
+                        if ($isLeader) {
+                            $isLeader = false;
+                            echo "<tr class='table-row'> 
+                                            <th scope='row'>#" . $rank . "</th>
+                                            <td><img class='leaderboard-display-pic' src='" . $row['avatarurl'] . "' alt='Users profile picture'> " . $row['username'] . "</td>
+                                            <td>" . $row['score'] . "</td>
+                                    </tr>";
+                        } else {
+                            echo "<tr class='table-row'> 
+                                        <th scope='row'>#" . $rank . "</th>
+                                        <td>" . $row['username'] . "</td>
+                                        <td>" . $row['score'] . "</td>
+                                </tr>";
+                        }
+
+                        $rank++;
+                    }
+                    ?>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-lg-5 leaderboard-card" style="background-image: url('/images/gameimages/foxbound.png')">
+                <div class="header-leaderboard text-center white-text"><h2>Fox Bound</h2></div>
+                <table class="leaderboard-table white-text">
+                    <thead>
+                    <tr>
+                        <th scope="col">Rank</th>
+                        <th scope="col">Player</th>
+                        <th scope="col">Score</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+                    $isLeader = true;
+                    $rank = 1;
+                    while ($row = $foxbound->fetch_assoc()) {
+                        if ($isLeader) {
+                            $isLeader = false;
+                            echo "<tr class='table-row'> 
+                                            <th scope='row'>#" . $rank . "</th>
+                                            <td><img class='leaderboard-display-pic' src='" . $row['avatarurl'] . "' alt='Users profile picture'> " . $row['username'] . "</td>
+                                            <td>" . $row['score'] . "</td>
+                                    </tr>";
+                        } else {
+                            echo "<tr class='table-row'> 
+                                        <th scope='row'>#" . $rank . "</th>
+                                        <td>" . $row['username'] . "</td>
+                                        <td>" . $row['score'] . "</td>
+                                </tr>";
+                        }
+
+                        $rank++;
+                    }
+                    ?>
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-lg-5 leaderboard-card" style="background-image: url('/images/gameimages/dinoDash.png')">
+                <div class="header-leaderboard text-center white-text"><h2>Dino Dash</h2></div>
+                <table class="leaderboard-table white-text">
+                    <thead>
+                    <tr>
+                        <th scope="col">Rank</th>
+                        <th scope="col">Player</th>
+                        <th scope="col">Score</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+                    $isLeader = true;
+                    $rank = 1;
+                    while ($row = $dinodash->fetch_assoc()) {
                         if ($isLeader) {
                             $isLeader = false;
                             echo "<tr class='table-row'> 

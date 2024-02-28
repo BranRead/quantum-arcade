@@ -68,11 +68,12 @@ class crud
     {
         $conn = (new config)->getDBConnection();
 
-        $sql = "UPDATE useraccounts SET username = $username WHERE user_id = $userID";
+        $sql = "UPDATE useraccounts SET username = ? WHERE user_id = ?";
         $stmt = $conn->stmt_init();
         if (!$stmt->prepare($sql)) {
             die("err: " . $conn->error);
         }
+        $stmt->bind_param("ss", $username, $userID);
         if ($stmt->execute()) {
             $_SESSION["userName"] = $username;
             header("location: ../" . $location);
