@@ -223,6 +223,7 @@ $games = $crud->read('SELECT * FROM gamelist');
                         <div class="d-flex flex-column align-items-center">
                             <input type="email" id="emailLogin" class="form-input" name="email" placeholder="email" value="<?php htmlspecialchars(isset($_POST["email"]) ? $_POST["email"] : "")?>">
                             <input type="password" id="passwordLogin" class="form-input" name="password" placeholder="password">
+                            <div class="d-flex flex-row"><input type="checkbox" class="passwordShow" onclick="togglePassword('passwordLogin', 'passwordShowLogin')"><span id="passwordShowLogin" class="white-text">Show password</span></div>
                             <div class="d-flex flex-row align-items-center justify-content-between mt-3">
                                 <div class="me-4"><a href="#">Forgot Password?</a></div>
                                 <div><button class="sm-button ms-2" type="submit" onclick="validateSignIn()">Login</button></div>

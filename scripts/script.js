@@ -12,7 +12,6 @@ document.getElementById("changeUsername").addEventListener("click", () => {
     } else {
         userNameDisplay.style.display = "none";
         let username = userNameDisplay.textContent;
-
         document.getElementById("changeUsernameForm").style.display = "block";
         document.getElementById("changeUsernameInput").placeholder = username;
     }
@@ -82,4 +81,16 @@ if(canvas != null) {
     animation();
 }
 
+
+function togglePassword(passwordTextFieldID, showPasswordText){
+    let pTxtField = document.getElementById(passwordTextFieldID);
+    let showPTxt = document.getElementById(showPasswordText);
+    if(pTxtField.type === "password"){
+        pTxtField.type = "text";
+        showPTxt.textContent = "Hide password";
+    } else {
+        pTxtField.type = "password";
+        showPTxt.textContent = "Show password";
+    }
+}
 
