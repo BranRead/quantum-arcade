@@ -4,6 +4,25 @@
 require_once "php/crud.php";
 require_once "php/login.php";
 require_once "php/updateUsername.php";
+
+$battySQL = "SELECT scoreleaderboard.score_id, scoreleaderboard.user_id, scoreleaderboard.game_id, scoreleaderboard.score, useraccounts.avatarurl, useraccounts.username 
+             FROM scoreleaderboard inner join useraccounts on scoreleaderboard.user_id = useraccounts.user_id where game_id = 2 order by score desc limit 10";
+
+$boltSQL = "SELECT scoreleaderboard.score_id, scoreleaderboard.user_id, scoreleaderboard.game_id, scoreleaderboard.score, useraccounts.avatarurl, useraccounts.username 
+             FROM scoreleaderboard inner join useraccounts on scoreleaderboard.user_id = useraccounts.user_id where game_id = 3 order by score desc limit 10";
+
+$foxboundSQL = "SELECT scoreleaderboard.score_id, scoreleaderboard.user_id, scoreleaderboard.game_id, scoreleaderboard.score, useraccounts.avatarurl, useraccounts.username 
+             FROM scoreleaderboard inner join useraccounts on scoreleaderboard.user_id = useraccounts.user_id where game_id = 4 order by score desc limit 10";
+
+$dinoSQL = "SELECT scoreleaderboard.score_id, scoreleaderboard.user_id, scoreleaderboard.game_id, scoreleaderboard.score, useraccounts.avatarurl, useraccounts.username 
+             FROM scoreleaderboard inner join useraccounts on scoreleaderboard.user_id = useraccounts.user_id where game_id = 1 order by score desc limit 10";
+
+$crud = new crud();
+
+$bolt = $crud->read($boltSQL);
+$dinodash = $crud->read($dinoSQL);
+$batty = $crud->read($battySQL);
+$foxbound = $crud->read($foxboundSQL);
 ?>
 
 <!doctype html>
@@ -217,56 +236,28 @@ require_once "php/updateUsername.php";
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="table-row">
-                            <th scope="row">#1</th>
-                            <td><img class="leaderboard-display-pic" src="images/default-profile-pic.png" alt="">Username</td>
-                            <td>100 000 000</td>
-                        </tr>
-                        <tr class="table-row">
-                            <th scope="row">#2</th>
-                            <td>Username</td>
-                            <td>100 000 000</td>
-                        </tr>
-                        <tr class="table-row">
-                            <th scope="row">#3</th>
-                            <td>Username</td>
-                            <td>100 000 000</td>
-                        </tr>
-                        <tr class="table-row">
-                            <th scope="row">#4</th>
-                            <td>Username</td>
-                            <td>100 000 000</td>
-                        </tr>
-                        <tr class="table-row">
-                            <th scope="row">#5</th>
-                            <td>Username</td>
-                            <td>100 000 000</td>
-                        </tr>
-                        <tr class="table-row">
-                            <th scope="row">#6</th>
-                            <td>Username</td>
-                            <td>100 000 000</td>
-                        </tr>
-                        <tr class="table-row">
-                            <th scope="row">#7</th>
-                            <td>Username</td>
-                            <td>100 000 000</td>
-                        </tr>
-                        <tr class="table-row">
-                            <th scope="row">#8</th>
-                            <td>Username</td>
-                            <td>100 000 000</td>
-                        </tr class="table-row">
-                        <tr class="table-row">
-                            <th scope="row">#9</th>
-                            <td>Username</td>
-                            <td>100 000 000</td>
-                        </tr>
-                        <tr class="table-row">
-                            <th scope="row">#10</th>
-                            <td>Username</td>
-                            <td>100 000 000</td>
-                        </tr>
+                        <?php
+                            $isLeader = true;
+                            $rank = 1;
+                            while ($row = $batty->fetch_assoc()) {
+                                if ($isLeader) {
+                                    $isLeader = false;
+                                    echo "<tr class='table-row'> 
+                                            <th scope='row'>#" . $rank . "</th>
+                                            <td><img class='leaderboard-display-pic' src='" . $row['avatarurl'] . "' alt='Users profile picture'> " . $row['username'] . "</td>
+                                            <td>" . $row['score'] . "</td>
+                                    </tr>";
+                                }
+                                echo "<tr class='table-row'> 
+                                        <th scope='row'>#" . $rank . "</th>
+                                        <td>" . $row['username'] . "</td>
+                                        <td>" . $row['score'] . "</td>
+                                </tr>";
+
+                                $rank++;
+                                }
+                        ?>
+
                     </tbody>
                 </table>
             </div>
@@ -281,56 +272,28 @@ require_once "php/updateUsername.php";
                     </tr>
                     </thead>
                     <tbody>
-                    <tr class="table-row">
-                        <th scope="row">#1</th>
-                        <td><img class="leaderboard-display-pic" src="images/default-profile-pic.png" alt="">Username</td>
-                        <td>100 000 000</td>
-                    </tr>
-                    <tr class="table-row">
-                        <th scope="row">#2</th>
-                        <td>Username</td>
-                        <td>100 000 000</td>
-                    </tr>
-                    <tr class="table-row">
-                        <th scope="row">#3</th>
-                        <td>Username</td>
-                        <td>100 000 000</td>
-                    </tr>
-                    <tr class="table-row">
-                        <th scope="row">#4</th>
-                        <td>Username</td>
-                        <td>100 000 000</td>
-                    </tr>
-                    <tr class="table-row">
-                        <th scope="row">#5</th>
-                        <td>Username</td>
-                        <td>100 000 000</td>
-                    </tr>
-                    <tr class="table-row">
-                        <th scope="row">#6</th>
-                        <td>Username</td>
-                        <td>100 000 000</td>
-                    </tr>
-                    <tr class="table-row">
-                        <th scope="row">#7</th>
-                        <td>Username</td>
-                        <td>100 000 000</td>
-                    </tr>
-                    <tr class="table-row">
-                        <th scope="row">#8</th>
-                        <td>Username</td>
-                        <td>100 000 000</td>
-                    </tr class="table-row">
-                    <tr class="table-row">
-                        <th scope="row">#9</th>
-                        <td>Username</td>
-                        <td>100 000 000</td>
-                    </tr>
-                    <tr class="table-row">
-                        <th scope="row">#10</th>
-                        <td>Username</td>
-                        <td>100 000 000</td>
-                    </tr>
+                    <!-- copy following php into next tbody, and then change variable in while condition from $bolt to $dino or $foxbound-->
+                    <?php
+                    $isLeader = true;
+                    $rank = 1;
+                    while ($row = $bolt->fetch_assoc()) {
+                        if ($isLeader) {
+                            $isLeader = false;
+                            echo "<tr class='table-row'> 
+                                            <th scope='row'>#" . $rank . "</th>
+                                            <td><img class='leaderboard-display-pic' src='" . $row['avatarurl'] . "' alt='Users profile picture'> " . $row['username'] . "</td>
+                                            <td>" . $row['score'] . "</td>
+                                    </tr>";
+                        }
+                        echo "<tr class='table-row'> 
+                                        <th scope='row'>#" . $rank . "</th>
+                                        <td>" . $row['username'] . "</td>
+                                        <td>" . $row['score'] . "</td>
+                                </tr>";
+
+                        $rank++;
+                    }
+                    ?>
                     </tbody>
                 </table>
             </div>
