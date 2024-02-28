@@ -247,15 +247,16 @@ $foxbound = $crud->read($foxboundSQL);
                                             <td><img class='leaderboard-display-pic' src='" . $row['avatarurl'] . "' alt='Users profile picture'> " . $row['username'] . "</td>
                                             <td>" . $row['score'] . "</td>
                                     </tr>";
-                                }
-                                echo "<tr class='table-row'> 
+                                } else {
+                                    echo "<tr class='table-row'> 
                                         <th scope='row'>#" . $rank . "</th>
                                         <td>" . $row['username'] . "</td>
                                         <td>" . $row['score'] . "</td>
                                 </tr>";
+                                }
 
                                 $rank++;
-                                }
+                            }
                         ?>
 
                     </tbody>
@@ -284,12 +285,13 @@ $foxbound = $crud->read($foxboundSQL);
                                             <td><img class='leaderboard-display-pic' src='" . $row['avatarurl'] . "' alt='Users profile picture'> " . $row['username'] . "</td>
                                             <td>" . $row['score'] . "</td>
                                     </tr>";
-                        }
-                        echo "<tr class='table-row'> 
+                        } else {
+                            echo "<tr class='table-row'> 
                                         <th scope='row'>#" . $rank . "</th>
                                         <td>" . $row['username'] . "</td>
                                         <td>" . $row['score'] . "</td>
                                 </tr>";
+                        }
 
                         $rank++;
                     }
