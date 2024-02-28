@@ -1,5 +1,5 @@
 <?php
-
+require_once "crud.php";
 $crud = new crud;
 
 if (isset($_GET['DeleteID'])) {

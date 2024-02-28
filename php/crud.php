@@ -3,15 +3,12 @@
 require_once "config.php";
 class crud
 {
-    public function create($data_array, $table)
+    public function createUser($username, $email, $passHash)
     {
         try {
             $conn = (new config)->getDBConnection();
 
-            $columns = implode(", ", array_keys($data_array));
-            $place_holders = str_repeat("?, ", count($data_array));
-
-            $sql = "INSERT INTO $table ($columns) VALUES ($place_holders)";
+            $sql = "INSERT INTO useraccounts (username, email, passHash) VALUES (?, ?, ?)";
 
             $stmt = $conn->stmt_init();
 
@@ -20,7 +17,7 @@ class crud
                 die("err: " . $conn->error);
             }
 
-            $stmt->bind_param("sss", $data_array["name"], $data_array["email"], $data_array["passHash"]);
+            $stmt->bind_param("sss", $username, $email, $passHash);
 
             if ($stmt->execute()) {
                 header("location: ../play.php");
@@ -29,6 +26,7 @@ class crud
                 if ($conn->errno === 1062) {
                     die("Email already used.");
                 } else {
+                    echo $stmt;
                     die("err: " . $conn->errno);
                 }
             }
@@ -40,8 +38,7 @@ class crud
     public function read($sql_query)
     {
         try {
-            $config = new config;
-            $conn = $config->getDBConnection();
+            $conn = (new config)->getDBConnection();
 
             return $conn->query($sql_query);
         } catch (Exception $e) {
@@ -52,8 +49,7 @@ class crud
 
     public function update()
     {
-        $config = new config();
-        $conn = $config->getDBConnection();
+        $conn = (new config)->getDBConnection();
 
         $sql = "UPDATE users SET username = ?, email = ?, passHash = ? WHERE id = ?";
         $stmt = $conn->stmt_init();
@@ -70,10 +66,9 @@ class crud
 
     public function updateUsername($username, $userID, $location)
     {
-        $config = new config();
-        $conn = $config->getDBConnection();
+        $conn = (new config)->getDBConnection();
 
-        $sql = "UPDATE useraccounts SET username = '{$username}' WHERE user_id = {$userID}";
+        $sql = "UPDATE useraccounts SET username = $username WHERE user_id = $userID";
         $stmt = $conn->stmt_init();
         if (!$stmt->prepare($sql)) {
             die("err: " . $conn->error);
@@ -89,11 +84,10 @@ class crud
 
     public function deleteScores($id)
     {
-        $config = new config;
-        $conn = $config->getDBConnection();
+        $conn = (new config)->getDBConnection();
 
         try {
-            $sql = "DELETE FROM scoreleaderboards WHERE user_id = {$id}";
+            $sql = "DELETE FROM scoreleaderboards WHERE user_id = $id";
             $stmt = $conn->stmt_init();
 
             if (!$stmt->prepare($sql)) {
@@ -115,11 +109,10 @@ class crud
 
     public function deleteAccount($id)
     {
-        $config = new config();
-        $conn = $config->getDBConnection();
+        $conn = (new config)->getDBConnection();
 
         try {
-            $sql = "DELETE FROM users WHERE id = {$id}";
+            $sql = "DELETE FROM useraccounts WHERE id = $id";
             $stmt = $conn->stmt_init();
             if (!$stmt->prepare($sql)) {
                 die("err: " . $conn->error);

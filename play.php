@@ -260,7 +260,7 @@ $games = $crud->read('SELECT * FROM gamelist');
                 <h2 class="modal-title white-text" id="login-modal-label">Registration</h2>
               </div>
               <div class="modal-body">
-                  <form action="/php/processSignUp.php" method="post">
+                  <form action="php/processSignUp.php" method="post">
                       <div class="d-flex flex-column align-items-center">
                           <input type="email" id="emailRegister" class="form-input" name="email" placeholder="email" required>
                           <input type="text" id="userNameRegister" class="form-input" name="username" placeholder="username" required>
