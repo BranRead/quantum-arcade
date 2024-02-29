@@ -98,6 +98,7 @@ function placeLeaderBoard ($game) {
             </div>
         </div>
     </nav>
+    
     <!--Modal for user settings-->
     <div class="modal fade" id="user-settings" tabindex="-1" aria-labelledby="login-modal-label" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -244,12 +245,8 @@ function placeLeaderBoard ($game) {
     <div class="d-flex flex-column align-items-center">
         <p id="leadersTitle" class="purple-text">Current Masters of their Domain</p>
     </div>
-
     <div class="container-fluid">
-
         <div class="row justify-content-around my-3">
-
-
             <div class="col-lg-5 leaderboard-card" style="background-image: url('/images/gameimages/battyFarming.png')">
                 <div class="header-leaderboard text-center white-text"><h2>Batty Farming</h2></div>
                 <table class="leaderboard-table white-text">
@@ -262,7 +259,6 @@ function placeLeaderBoard ($game) {
                     </thead>
                     <tbody>
                     <?php placeLeaderBoard($batty); ?>
-
                     </tbody>
                 </table>
             </div>
@@ -294,7 +290,6 @@ function placeLeaderBoard ($game) {
                     </thead>
                     <tbody>
                     <?php placeLeaderBoard($foxbound); ?>
-
                     </tbody>
                 </table>
             </div>
@@ -313,11 +308,8 @@ function placeLeaderBoard ($game) {
                     </tbody>
                 </table>
             </div>
-
         </div>
-
     </div>
-
     <div id="footer" class="d-flex flex-column align-items-center">
         <div id="logo-footer-div">
             <img id="logo-footer" src="images/fulllogo_transparent.png" alt="Website Logo">
