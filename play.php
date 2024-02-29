@@ -11,8 +11,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $isValid = (new login)->logUserIn();
 }
 
-
-
 $games = $crud->read('SELECT * FROM gamelist');
 ?>
 <!doctype html>
@@ -130,7 +128,6 @@ $games = $crud->read('SELECT * FROM gamelist');
               <div class="d-flex flex-column align-items-center">
                 <input type="password" id="passwordResetScores" class="form-input" name="password" placeholder="Password">
                 <input type="password" id="passwordConfirmResetScores" class="form-input" name="passwordConfirm" placeholder="Confirm Password">
-                
               </div>
           </form>
           <button class="sm-button mt-4" data-bs-toggle=modal data-bs-target="#reset-scores-confirm-modal">Submit</button>
@@ -141,31 +138,29 @@ $games = $crud->read('SELECT * FROM gamelist');
   <!--End of modal for reset scores-->
 
   <!--Modal for reseting scores verification-->
-<div class="modal fade" id="reset-scores-confirm-modal" tabindex="-1" aria-labelledby="login-modal-label" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-background-gradient"></div>
-      <div class="modal-background-image"></div>
-      <div class="modal-background-filter"></div>
-      <div class="modal-header">
-        <h2 class="modal-title white-text" id="login-modal-label">&#9888 Warning &#9888</h2>
-      </div>
-      <div class="modal-body d-flex flex-column justify-content-center align-items-center">
-          <div class="confirm-modal">
-            <p>This action can not be reversed!</p>
-            <p>Once you press "Confirm" your scores will be lost permanently.</p>
-            <p>Please be absolutely sure you wish to continue before clicking the big red button!</p>
-          </div>
-          <button id="submitResetScores" class="bg-red-button mt-4 p-4">Confirm</button>
+  <div class="modal fade" id="reset-scores-confirm-modal" tabindex="-1" aria-labelledby="login-modal-label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-background-gradient"></div>
+        <div class="modal-background-image"></div>
+        <div class="modal-background-filter"></div>
+        <div class="modal-header">
+          <h2 class="modal-title white-text" id="login-modal-label">&#9888 Warning &#9888</h2>
+        </div>
+        <div class="modal-body d-flex flex-column justify-content-center align-items-center">
+            <div class="confirm-modal">
+              <p>This action can not be reversed!</p>
+              <p>Once you press "Confirm" your scores will be lost permanently.</p>
+              <p>Please be absolutely sure you wish to continue before clicking the big red button!</p>
+            </div>
+            <button id="submitResetScores" class="bg-red-button mt-4 p-4" href="<?php ?>">Confirm</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<!--End of modal for deleting account verification-->
-
+  <!--End of modal for deleting account verification-->
 
    <!--Modal for deleting account-->
-
    <div class="modal fade" id="delete-account-modal" tabindex="-1" aria-labelledby="login-modal-label" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -180,7 +175,6 @@ $games = $crud->read('SELECT * FROM gamelist');
             <div class="d-flex flex-column align-items-center">
               <input type="password" id="password" class="form-input" name="password" placeholder="Password">
               <input type="password" id="passwordConfirm" class="form-input" name="passwordConfirm" placeholder="Confirm Password">
-              
             </div>
         </form>
         <button class="sm-button mt-4" data-bs-toggle=modal data-bs-target="#delete-account-confirm-modal">Submit</button>
@@ -190,28 +184,28 @@ $games = $crud->read('SELECT * FROM gamelist');
 </div>
 <!--End of modal for deleting account-->
 
-<!--Modal for deleting account verification-->
-<div class="modal fade" id="delete-account-confirm-modal" tabindex="-1" aria-labelledby="login-modal-label" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-background-gradient"></div>
-      <div class="modal-background-image"></div>
-      <div class="modal-background-filter"></div>
-      <div class="modal-header">
-        <h2 class="modal-title white-text" id="login-modal-label">&#9888 Warning &#9888</h2>
-      </div>
-      <div class="modal-body d-flex flex-column justify-content-center align-items-center">
-        <div class="confirm-modal">
-          <p>This action can not be reversed!</p>
-          <p>Once you press "Confirm" all data will be lost permanently.</p>
-          <p>Please be absolutely sure you wish to continue before clicking the big red button!</p>
+    <!--Modal for deleting account verification-->
+    <div class="modal fade" id="delete-account-confirm-modal" tabindex="-1" aria-labelledby="login-modal-label" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-background-gradient"></div>
+          <div class="modal-background-image"></div>
+          <div class="modal-background-filter"></div>
+          <div class="modal-header">
+            <h2 class="modal-title white-text" id="login-modal-label">&#9888 Warning &#9888</h2>
+          </div>
+          <div class="modal-body d-flex flex-column justify-content-center align-items-center">
+            <div class="confirm-modal">
+              <p>This action can not be reversed!</p>
+              <p>Once you press "Confirm" all data will be lost permanently.</p>
+              <p>Please be absolutely sure you wish to continue before clicking the big red button!</p>
+            </div>
+            <button id="submitDeleteAccount" class="bg-red-button mt-4 p-4">Confirm</button>
+          </div>
         </div>
-        <button id="submitDeleteAccount" class="bg-red-button mt-4 p-4">Confirm</button>
       </div>
     </div>
-  </div>
-</div>
-<!--End of modal for deleting account verification-->
+    <!--End of modal for deleting account verification-->
 
     <!--Modal for login-->
     <?php if (!$isValid): ?>
@@ -247,7 +241,6 @@ $games = $crud->read('SELECT * FROM gamelist');
             </div>
         </div>
     </div>
-
     <!--End of modal for login-->
 
      <!--Modal for registration-->
@@ -281,8 +274,7 @@ $games = $crud->read('SELECT * FROM gamelist');
 
     <h1 class="purple-text text-center mt-5">Choose your destiny:</h1>
     <div class="container-fluid py-5">
-
-            <?php
+        <?php
             $isFirstOne = true;
             while ($row = $games->fetch_assoc()) {
                 if($isFirstOne){
@@ -301,18 +293,18 @@ $games = $crud->read('SELECT * FROM gamelist');
                                 </div>
                           </div>";
                 } else {
-                echo "<div class='row'>
-                    <div class='img-game d-flex justify-content-center col-lg-4'>
-                        <a class='quantum-game-link' href='" . $row['game_url'] . "'><img class='quantum-game img-fluid' src='" . $row['image_url'] . "' alt=''></a>
-                    </div>
-                    <div class='game-title text-center col-lg-4'>
-                        <h2>" . $row['title'] . "</h2>
-                        <p>" . $row['description'] . "</p>
-                    </div>
-                </div>";
+                    echo "<div class='row'>
+                        <div class='img-game d-flex justify-content-center col-lg-4'>
+                           <a class='quantum-game-link' href='" . $row['game_url'] . "'><img class='quantum-game img-fluid' src='" . $row['image_url'] . "' alt=''></a>
+                        </div>
+                        <div class='game-title text-center col-lg-4'>
+                           <h2>" . $row['title'] . "</h2>
+                           <p>" . $row['description'] . "</p>
+                        </div>
+                    </div>";
                 }
             }
-            ?>
+        ?>
         </div>
     </div>
 

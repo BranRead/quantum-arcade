@@ -42,7 +42,6 @@ function placeLeaderBoard ($game) {
                       <td>" . $row['score'] . "</td>
                   </tr>";
         }
-
         $rank++;
     }
 }
@@ -192,7 +191,6 @@ function placeLeaderBoard ($game) {
         </div>
     </div>
     <!--End of modal for deleting account verification-->
-
 
     <!--Modal for deleting account-->
     <div class="modal fade" id="delete-account-modal" tabindex="-1" aria-labelledby="login-modal-label" aria-hidden="true">
