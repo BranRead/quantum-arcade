@@ -11,6 +11,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $isValid = (new login)->logUserIn();
 }
 
+if (isset($_GET['deleteID'])) {
+    $accountID = $_GET['deleteID'];
+
+    try {
+        $crud->deleteAccount($accountID);
+        $crud->deleteScores($accountID);
+    } catch (Exception $e) {
+        die("err: " . $e->getMessage());
+    }
+}
+
+if (isset($_GET["scoreID"])) {
+    $scoreID = $_GET["scoreID"];
+
+    try {
+        $crud->deleteScores($scoreID);
+    } catch (Exception $e) {
+        die("err: " . $e->getMessage());
+    }
+}
+
 $games = $crud->read('SELECT * FROM gamelist');
 ?>
 <!doctype html>
@@ -153,7 +174,7 @@ $games = $crud->read('SELECT * FROM gamelist');
               <p>Once you press "Confirm" your scores will be lost permanently.</p>
               <p>Please be absolutely sure you wish to continue before clicking the big red button!</p>
             </div>
-            <button id="submitResetScores" class="bg-red-button mt-4 p-4" href="<?php ?>">Confirm</button>
+            <a  href="/play.php?scoreID=<?php $_SESSION['userID']?>"><button id="submitResetScores" class="bg-red-button mt-4 p-4">Confirm</button></a>
         </div>
       </div>
     </div>
@@ -200,7 +221,7 @@ $games = $crud->read('SELECT * FROM gamelist');
               <p>Once you press "Confirm" all data will be lost permanently.</p>
               <p>Please be absolutely sure you wish to continue before clicking the big red button!</p>
             </div>
-            <button id="submitDeleteAccount" class="bg-red-button mt-4 p-4">Confirm</button>
+              <a href="play.php?deleteID=<?php $_SESSION['userID'] ?>"><button id="submitDeleteAccount" class="bg-red-button mt-4 p-4">Confirm</button></a>
           </div>
         </div>
       </div>

@@ -1,4 +1,5 @@
 <?php
+require_once "crud.php";
 
 $crud = new crud;
 
@@ -10,4 +11,7 @@ if (isset($_GET["scoreID"])) {
   } catch (Exception $e) {
     die("err: " . $e->getMessage());
   }
+    header("Location: ../play.php");
 }
+
+

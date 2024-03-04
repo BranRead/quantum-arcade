@@ -92,13 +92,13 @@ class crud
             $stmt = $conn->stmt_init();
 
             if (!$stmt->prepare($sql)) {
-                die("err: " . $conn->error);
+                die("err in prep: " . $conn->error);
             }
             if ($stmt->execute()) {
                 header("../play.php");
                 exit;
             } else {
-                die("err: " . $conn->error);
+                die("err at execute: " . $conn->error);
             }
         } catch (Exception $e) {
             die("err: " . $e->getMessage());
