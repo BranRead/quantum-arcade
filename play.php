@@ -174,7 +174,7 @@ $games = $crud->read('SELECT * FROM gamelist');
               <p>Once you press "Confirm" your scores will be lost permanently.</p>
               <p>Please be absolutely sure you wish to continue before clicking the big red button!</p>
             </div>
-            <a  href="/play.php?scoreID=<?php $_SESSION['userID']?>"><button id="submitResetScores" class="bg-red-button mt-4 p-4">Confirm</button></a>
+            <button id="submitResetScores" class="bg-red-button mt-4 p-4"><?php echo "<a href='play.php?scoreID=" . $_SESSION['userID'] . "'>"?>Confirm</a></button>
         </div>
       </div>
     </div>
@@ -221,7 +221,7 @@ $games = $crud->read('SELECT * FROM gamelist');
               <p>Once you press "Confirm" all data will be lost permanently.</p>
               <p>Please be absolutely sure you wish to continue before clicking the big red button!</p>
             </div>
-              <a href="play.php?deleteID=<?php $_SESSION['userID'] ?>"><button id="submitDeleteAccount" class="bg-red-button mt-4 p-4">Confirm</button></a>
+              <button id="submitDeleteAccount" class="bg-red-button mt-4 p-4"><?php echo "<a href='play.php?deleteID=" . $_SESSION['userID'] . "'>"?>Confirm</a></button>
           </div>
         </div>
       </div>

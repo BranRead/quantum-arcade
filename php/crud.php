@@ -88,7 +88,7 @@ class crud
         $conn = (new config)->getDBConnection();
 
         try {
-            $sql = "DELETE FROM scoreleaderboards WHERE user_id = $id";
+            $sql = "DELETE FROM scoreleaderboard WHERE user_id = $id";
             $stmt = $conn->stmt_init();
 
             if (!$stmt->prepare($sql)) {
@@ -101,7 +101,8 @@ class crud
                 die("err at execute: " . $conn->error);
             }
         } catch (Exception $e) {
-            die("err: " . $e->getMessage());
+            die("err in deleteScores exception: " . $e->getMessage());
+
         } finally {
             $stmt->close();
             $conn->close();
@@ -113,21 +114,22 @@ class crud
         $conn = (new config)->getDBConnection();
 
         try {
-            $sql = "DELETE FROM useraccounts WHERE id = $id";
+            $sql = "DELETE FROM useraccounts WHERE user_id = $id";
             $stmt = $conn->stmt_init();
             if (!$stmt->prepare($sql)) {
-                die("err: " . $conn->error);
+                die("err in delete Account prepare: " . $conn->error);
             }
             if ($stmt->execute()) {
                 $this->deleteScores($id);
                 exit;
             } else {
-                die("err: " . $conn->errno);
+                die("err in deleteaccount execute: " . $conn->errno);
             }
 
         } catch (Exception $e) {
-            die("err: " . $e->getMessage());
+            die("err in delete account general exception: " . $e->getMessage());
         }
+        header("location: index.html");
     }
 
     public function createSessionID()

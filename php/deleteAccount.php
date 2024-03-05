@@ -9,7 +9,7 @@ if (isset($_GET['deleteID'])) {
         $crud->deleteAccount($accountID);
         $crud->deleteScores($accountID);
     } catch (Exception $e) {
-        die("err: " . $e->getMessage());
+        die("err at delete account php: " . $e->getMessage());
     }
-    header("Location: ../index.htm");
+    header("Location: ../index.html");
 }

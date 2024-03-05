@@ -9,7 +9,7 @@ if (isset($_GET["scoreID"])) {
   try {
     $crud->deleteScores($scoreID);
   } catch (Exception $e) {
-    die("err: " . $e->getMessage());
+    die("err: at delete scores " . $e->getMessage());
   }
     header("Location: ../play.php");
 }
