@@ -185,7 +185,7 @@ function placeLeaderBoard ($game) {
                         <p>Once you press "Confirm" your scores will be lost permanently.</p>
                         <p>Please be absolutely sure you wish to continue before clicking the big red button!</p>
                     </div>
-                    <button id="submitResetScores" class="bg-red-button mt-4 p-4" href="/php/deleteScores.php=?scoreID=<?php $_SESSION['userID'] ?>">Confirm</button>
+                    <button id="submitResetScores" class="bg-red-button mt-4 p-4"><?php echo "<a href='play.php?scoreID=" . $_SESSION['userID'] . "'>"?>Confirm</a></button>
                 </div>
             </div>
         </div>
@@ -233,7 +233,7 @@ function placeLeaderBoard ($game) {
                         <p>Once you press "Confirm" all data will be lost permanently.</p>
                         <p>Please be absolutely sure you wish to continue before clicking the big red button!</p>
                     </div>
-                    <button id="submitDeleteAccount" class="bg-red-button mt-4 p-4" >Confirm</button>
+                    <button id="submitDeleteAccount" class="bg-red-button mt-4 p-4" ><?php echo "<a href='play.php?deleteID=" . $_SESSION['userID'] . "'>"?>Confirm</a></button>
                 </div>
             </div>
         </div>
