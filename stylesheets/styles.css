@@ -1,0 +1,428 @@
+/*
+General Stuff
+*/
+* {
+    font-family: 'Gemunu Libre', sans-serif;
+}
+
+.link-within-button {
+    color: white;
+    text-decoration: none;
+}
+
+.link-within-button:hover {
+    color: white;
+}
+
+.upper-gradient {
+    background-image: linear-gradient(#5D7DE9, #4F92E6, #3EADE2, #2EC7DE, #1DE0DA);
+}
+
+body {
+    height: 100%;
+    /* background: #1DE0DA; */
+    /* background-image: linear-gradient(#5D7DE9, #4F92E6, #3EADE2, #2EC7DE, #1DE0DA); */
+}
+
+a {
+    font-weight: bolder;
+    color: #1026E8;
+}
+
+a:hover {
+    color: #4051ed;
+}
+
+.normal-link {
+    text-decoration: none;
+}
+
+.normal-link:hover {
+    /*text-decoration: none;*/
+    color: white;
+}
+
+
+
+h1, h2, .nav-link {
+    font-weight: bolder;
+}
+
+h1 {
+    font-size: 3em !important;
+    font-weight: bolder;
+}
+
+h2 {
+    font-size: 2.5em;
+}
+
+.purple-text {
+    color: #104573;
+}
+
+.white-text {
+    color: white;
+}
+
+.orange-text {
+    color:#F25922;
+}
+
+.warning-banner, .bg-red-button {
+    background-color: #FC0505 !important;
+}
+
+/*Going to make this a general purpose button*/
+#to-games-button, .sm-button, .sm-button-settings, .bg-red-button, .xtra-sm-button {
+    background-color: #F25922;
+    color: white;
+    border-radius: 30px;
+    font-size: 2.25em;
+    font-weight: bolder;
+    filter: drop-shadow(0px 4px 5px black);
+}
+
+.sm-button, .sm-button-settings, .bg-red-button {
+    width: 160px;
+    font-size: 2em;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    border: none;
+    filter: drop-shadow(4px 4px 5px black);
+}
+
+.sm-button-settings {
+    width: 300px;
+}
+
+.xtra-sm-button {
+    width: fit-content;
+    font-size: 1em;
+    font-weight: normal;
+    filter: drop-shadow(6px 6px 4px black);
+    border: none;
+}
+
+#to-games-button:hover, .sm-button:hover, .sm-button-settings:hover, .bg-red-button:hover, .xtra-sm-button:hover {
+    filter: drop-shadow(0px 0px 0px);
+}
+
+.bg-red-button {
+    width: 60%;
+}
+
+.orange-banner, .orange-header {
+    background-color: #F25922;
+    width: 100%;
+    text-align: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.orange-header {
+    border-bottom: 2px solid black;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+/*
+   Navbar
+   */
+nav {
+    height: fit-content;
+    border-bottom: 2px solid black;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+#navbar-logo {
+    width: 361px;
+    height: 233px;
+    margin-left: 3rem;
+}
+#navbarNav {
+    max-width: fit-content;
+    margin-right: 3rem;
+}
+.nav-link {
+    font-size: 2.25em;
+    font-weight: bolder;
+}
+/*
+   Body - Main Page
+   */
+#main-body {
+    margin-left: 6rem;
+    margin-right: 6rem;
+}
+#front-page-img {
+    width: 568px;
+    height: 546.4px;
+    margin-right: 6rem;
+}
+/*
+   Quantum Swag
+   */
+#quantum-swag {
+    background-color: #1DE0DA;
+    text-align: center;
+    width: 100%;
+    padding-bottom: 2rem;
+}
+#quantum-swag > div {
+    margin: 2rem 6rem 0rem 6rem;
+}
+/* .quantum-swag-link {
+   } */
+.quantum-swag, .quantum-game {
+    width: 394px;
+    height: 426px;
+    border: 2px solid #5E90F2;
+    transition: transform .2s;
+    border-radius: 30px;
+}
+.quantum-game {
+    border-color: #000;
+}
+.quantum-swag:hover, .quantum-game:hover {
+    transform: scale(1.1);
+}
+.ms-2 {
+    margin-left: 0rem !important;
+}
+/*
+   Footer
+   */
+#footer {
+    /* background: #1DE0DA; */
+    background-image: linear-gradient(#1DE0DA, #2EC7DE, #3EADE2, #4F92E6, #5D7DE9);
+    border-top: 2px solid #5E90F2;
+}
+#logo-footer-div {
+    width: fit-content;
+}
+#logo-footer {
+    width: 161px;
+    height: 129px;
+}
+.social-media-link {
+    width: 50px;
+    height: 50px;
+    transition: transform .2s;
+}
+.social-media-link:hover {
+    transform: scale(1.25);
+}
+/*
+   Game Selection
+   */
+
+.horizontal-line {
+    width: 50%;
+    height: 2px;
+    background-color: #000;
+    margin-left: auto;
+    margin-right: auto;
+}
+/*
+   Modals
+   */
+
+/*
+login
+*/
+
+.modal-content {
+    height: 670px;
+    border: 2px solid black;
+}
+
+.modal-header, .header-leaderboard {
+    z-index: 1;
+    background-color: #F25922;
+    border-bottom: 2px solid black;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+.modal-title {
+    margin-left: auto;
+    margin-right: auto;
+}
+.modal-body {
+    padding: 0;
+}
+.modal-content {
+    border-radius: 30px;
+    width: 490px;
+    position: relative;
+}
+.modal-background-gradient {
+    background-image: linear-gradient(#1DE0DA, #2EC7DE, #3EADE2, #4F92E6, #5D7DE9);
+    border-radius: 30px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+.modal-background-image {
+    background-image: url("../images/modalBackgroundCropped.png");
+    background-size: contain;
+    border-radius: 30px;
+    background-repeat: no-repeat;
+    position: absolute;
+    /* For some reason changing this top value also changes horizonal alignment of the image */
+    top: 30px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+.modal-background-filter {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #D9D9D9;
+    opacity: 43%;
+    border-radius: 30px;
+}
+
+.form-input, .form-input-small {
+    border-radius: 30px;
+    border: none;
+    padding: 0.5rem 0.5rem 0.5rem 2rem;
+    margin-top: 2rem;
+    font-size: 2em;
+}
+
+.form-input-small {
+    font-size: 1em;
+    margin-top: 0;
+}
+
+#profileTitle {
+    margin-top: 6rem;
+    padding: 1rem;
+}
+
+.displayPic {
+    width: 100px;
+    height: 100px;
+}
+
+.displayPic:hover {
+    border: 4px solid white;
+    border-radius: 100px;
+    cursor: pointer;
+}
+
+#profileTitle > p {
+    margin-bottom: 0;
+    margin-left: 1rem;
+}
+
+.confirm-modal {
+    background-color: white;
+    color: #FC0505;
+    border-radius: 30px;
+    padding: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    font-size: 2em;
+    font-weight: bolder;
+}
+
+/*
+Leaders
+*/
+
+#leadersTitle {
+    z-index: 1;
+    font-size: 4em;
+    font-weight: bolder;
+}
+
+.leaderboard-card {
+    border-radius: 30px;
+    border: 2px solid black;
+    padding: 0;
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-bottom: 3rem;
+}
+
+.leaderboard-display-pic {
+    width: 75px;
+    height: 75px;
+}
+
+table {
+    width: 100%;
+    height: fit-content;
+
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bolder;
+    background-color: hsla(0, 0%, 55%, 0.6)!important;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+
+}
+
+.table-row {
+    border-top: 1px solid black;
+    padding: 1rem;
+    height: fit-content;
+}
+
+.table-row > td {
+    padding: 1rem 0;
+    /*border-left: 1px solid black;*/
+    /*border-right: 1px solid black;*/
+}
+
+#contact-text {
+    font-size: 2em;
+    font-weight: bolder;
+}
+
+#contactFormContainer {
+    background-image: url("../images/modalBackgroundCropped.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 30px;
+    border: 2px solid black;
+}
+
+#contact-name {
+    width: 35%;
+}
+
+#omegaLogoAbout {
+    max-width: 100%;
+}
+
+#about-us-row {
+    height: fit-content;
+}
+
+.team-about-card {
+    width: 20%;
+}
+
+#changeUsername {
+    width: 30px;
+    height: auto;
+}
+
+#changeUsername:hover {
+    cursor: pointer;
+    border: 2px solid white;
+    border-radius: 100px;
+}
+
+#changeUsernameForm {
+    display: none;
+}
+
