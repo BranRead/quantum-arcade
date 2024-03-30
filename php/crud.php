@@ -95,7 +95,7 @@ class crud
                 die("err in prep: " . $conn->error);
             }
             if ($stmt->execute()) {
-                header("../play.php");
+                header("Location: ../quantum-arcade-brandon/play.php");
                 exit;
             } else {
                 die("err at execute: " . $conn->error);

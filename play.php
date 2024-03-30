@@ -174,7 +174,7 @@ $games = $crud->read('SELECT * FROM gamelist');
               <p>Once you press "Confirm" your scores will be lost permanently.</p>
               <p>Please be absolutely sure you wish to continue before clicking the big red button!</p>
             </div>
-            <button id="submitResetScores" class="bg-red-button mt-4 p-4"><?php echo "<a href='play.php?scoreID=" . $_SESSION['userID'] . "'>"?>Confirm</a></button>
+            <button id="submitResetScores" class="bg-red-button mt-4 p-4"><?php echo "<a href='play.php?scoreID=" . $_SESSION["userID"] . "'>"?>Confirm</a></button>
         </div>
       </div>
     </div>
