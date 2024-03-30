@@ -95,17 +95,18 @@ class crud
                 die("err in prep: " . $conn->error);
             }
             if ($stmt->execute()) {
-                header("Location: ../quantum-arcade-brandon/play.php");
-                exit;
+                echo "completed successfully";
             } else {
                 die("err at execute: " . $conn->error);
             }
+
         } catch (Exception $e) {
             die("err in deleteScores exception: " . $e->getMessage());
 
         } finally {
             $stmt->close();
             $conn->close();
+            header("Location: ../index.html");
         }
     }
 
@@ -114,22 +115,27 @@ class crud
         $conn = (new config)->getDBConnection();
 
         try {
+
             $sql = "DELETE FROM useraccounts WHERE user_id = $id";
             $stmt = $conn->stmt_init();
+
             if (!$stmt->prepare($sql)) {
                 die("err in delete Account prepare: " . $conn->error);
             }
             if ($stmt->execute()) {
-                $this->deleteScores($id);
-                exit;
+                echo "completed execution";
             } else {
-                die("err in deleteaccount execute: " . $conn->errno);
+                die("err in deleteAccount execute: " . $conn->errno);
             }
 
         } catch (Exception $e) {
             die("err in delete account general exception: " . $e->getMessage());
+        } finally {
+            $stmt->close();
+            $conn->close();
+            $this->deleteScores($id);
         }
-        header("location: index.html");
+
     }
 
     public function createSessionID()
