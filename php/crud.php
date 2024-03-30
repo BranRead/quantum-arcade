@@ -83,6 +83,40 @@ class crud
         }
     }
 
+    public function updatePassword($password, $userID, $location)
+    {
+
+        $conn = (new config)->getDBConnection();
+
+        $sql = "UPDATE useraccounts SET passHash = ? WHERE user_id = ?";
+        $stmt = $conn->stmt_init();
+        if (!$stmt->prepare($sql)) {
+            die("err: " . $conn->error);
+        }
+        $stmt->bind_param("ss", $password, $userID);
+        if ($stmt->execute()) {
+            header("location: ../" . $location);
+            exit;
+        } else {
+            die("err: " . $conn->errno);
+        }
+    }
+
+    public function readPassword($userID){
+
+        $conn = (new config)->getDBConnection();
+        $crud = new crud;
+
+        $sql = sprintf("SELECT * FROM useraccounts WHERE user_id = '%s'", $conn->real_escape_string($userID));
+        $result = $crud->read($sql);
+        $user = $result->fetch_assoc();
+        if ($user) {
+            return $user["passHash"];
+        } else {
+            return null;
+        }
+    }
+
     public function deleteScores($id)
     {
         $conn = (new config)->getDBConnection();

@@ -5,10 +5,10 @@ require_once "php/crud.php";
 require_once "php/login.php";
 require_once "php/updateUsername.php";
 
-$isValid = false;
+//$isValid = false;
 $crud = new crud();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $isValid = (new login)->logUserIn();
+    (new login)->logUserIn();
 }
 
 if (isset($_GET['deleteID'])) {
@@ -59,6 +59,7 @@ $games = $crud->read('SELECT * FROM gamelist');
                 </button>
                 <div id="profileTitle" class="d-flex flex-row align-items-center">
                     <img class="displayPic" src="images/default-profile-pic.png" alt="" data-bs-toggle=modal data-bs-target=<?php if(!isset($_SESSION['userID'])) : echo "#login-modal"; else : echo "#user-settings"; endif;?>>
+                    <?php if (isset($_SESSION['userName'])): ?>
                     <p id="displayedUsername" class="text-center white-text"><?php if(isset($_SESSION['userID'])) : echo $_SESSION['userName']; else : echo "UserName"; endif;?></p>
                     <div class="mx-2 d-flex flex-row align-items-center">
                         <form id="changeUsernameForm" method="post" action="php/updateUsername.php">
@@ -66,7 +67,9 @@ $games = $crud->read('SELECT * FROM gamelist');
                             <button class="xtra-sm-button" name="location" value="play.php" type="submit">Submit</button>
                         </form>
                     </div>
-                    <img id="changeUsername" src="/images/settingsIcon.png" alt="Settings">
+
+                    <img  title="Change username" id="changeUsername" src="/images/settingsIcon.png" alt="Settings">
+                    <?php endif; ?>
                 </div>
                 <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
                     <ul class="navbar-nav">
@@ -120,12 +123,12 @@ $games = $crud->read('SELECT * FROM gamelist');
               <h2 class="modal-title white-text" id="login-modal-label">Change Password</h2>
             </div>
             <div class="modal-body d-flex flex-column justify-content-center align-items-center">
-              <form action="#" method="post">
+              <form action="php/updatePassword.php" method="post">
                 <div class="d-flex flex-column align-items-center">
                   <input type="password" id="oldPassword" class="form-input" name="oldPassword" placeholder="Old Password">
                   <input type="password" id="newPassword" class="form-input" name="newPassword" placeholder="New Password">
                   <input type="password" id="newPasswordConfirm" class="form-input" name="newPasswordConfirm" placeholder="Retype New Password">
-                  <button class="sm-button mt-4" type="submit">Submit</button>
+                  <button class="sm-button mt-4" name="location" value="play.php"  type="submit">Submit</button>
                 </div>
             </form>
             </div>
@@ -229,7 +232,7 @@ $games = $crud->read('SELECT * FROM gamelist');
     <!--End of modal for deleting account verification-->
 
     <!--Modal for login-->
-    <?php if (!$isValid): ?>
+    <?php if (!isset($_SESSION['userName'])): ?>
     <div class="modal fade" id="login-modal" tabindex="-1" aria-labelledby="login-modal-label" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -254,9 +257,11 @@ $games = $crud->read('SELECT * FROM gamelist');
                     <div class="d-flex flex-column align-items-center">
                         <div class="orange-banner mt-3">
                             <h2 class="white-text">Looking to get started?</h2>
+                            <div class="horizontal-line" style="background-color: white"></div>
+                            <h2 class="white-text">Register to join the fray</h2>
                         </div>
-                        <h2 class="white-text">Press start to join the fray</h2>
-                        <button class="sm-button my-5" type="button" data-bs-toggle=modal data-bs-target="#register-modal">Start</button>
+
+                        <button class="sm-button my-5" type="button" data-bs-toggle=modal data-bs-target="#register-modal">Register</button>
                     </div>
                 </div>
             </div>

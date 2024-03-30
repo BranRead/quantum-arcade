@@ -17,6 +17,14 @@ document.getElementById("changeUsername").addEventListener("click", () => {
     }
 })
 
+document.getElementById("changeUsername").addEventListener("onmouseover", ()=>{
+
+})
+
+document.getElementById("changeUsername").addEventListener("onmouseout", ()=>{
+
+})
+
 
 const canvas = document.getElementById("buggyScreen");
 
