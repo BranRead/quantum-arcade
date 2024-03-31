@@ -144,6 +144,36 @@ class crud
         }
     }
 
+    //New function added by Sophie March 29th
+    public function addScore($userID, $gameID, $score)
+    {
+        $conn = (new config)->getDBConnection();
+
+        try {
+            $sql = "INSERT INTO `scoreleaderboard`
+            (`user_id`, `game_id`, `score`) 
+            VALUES ('$userID','$gameID','$score')";
+            $stmt = $conn->stmt_init();
+
+            if (!$stmt->prepare($sql)) {
+                die("err in prep: " . $conn->error);
+            }
+            if ($stmt->execute()) {
+                echo "completed successfully";
+            } else {
+                die("err at execute: " . $conn->error);
+            }
+
+        } catch (Exception $e) {
+            die("err in addScore exception: " . $e->getMessage());
+
+        } finally {
+            $stmt->close();
+            $conn->close();
+            header("Location: ../play.php");
+        }
+    }
+
     public function deleteAccount($id)
     {
         $conn = (new config)->getDBConnection();
