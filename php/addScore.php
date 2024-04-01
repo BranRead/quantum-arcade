@@ -15,9 +15,11 @@ if (isset($_POST['data'])) {
         $score = $json['score'];
 
         try {
-            $crud->addScore($userID, $gameID, $score);
+            $crud->addScore(4, $gameID, $score);
         } catch (Exception $e) {
             die("err at delete account php: " . $e->getMessage());
         }
     }
+}else{
+    echo "No data";
 }
