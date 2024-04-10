@@ -1,9 +1,10 @@
 <?php
     class config
     {
+
         private $server = 'localhost';
         private $userName = 'root';
-        private $pass = "";
+        private $pass = '';
         private $dbname = 'quantumarcade';
 
         public function getDBConnection()

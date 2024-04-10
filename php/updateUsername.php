@@ -1,7 +1,5 @@
 <?php
-session_start();
 require_once 'crud.php';
-//require_once 'config.php';
 
 $crud = new crud();
 
