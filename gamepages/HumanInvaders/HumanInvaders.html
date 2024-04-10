@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no">
-		<title>HumanInvaders</title>
+		<title>$GODOT_PROJECT_NAME</title>
 		<style>
 body {
 	touch-action: none;
@@ -109,11 +109,7 @@ body {
 	visibility: visible;
 }
 		</style>
-		<link id='-gd-engine-icon' rel='icon' type='image/png' href='HumanInvaders.icon.png' />
-<link rel='apple-touch-icon' href='HumanInvaders.apple-touch-icon.png'/>
-Header set Cross-Origin-Embedder-Policy "require-corp"
-Header set Cross-Origin-Opener-Policy "same-origin"
-<script src="coi-serviceworker.js"></script>
+		$GODOT_HEAD_INCLUDE
 	</head>
 	<body>
 		<canvas id="canvas">
@@ -137,9 +133,9 @@ Header set Cross-Origin-Opener-Policy "same-origin"
 			<div id="status-notice" class="godot" style="display: none;"></div>
 		</div>
 
-		<script src="HumanInvaders.js"></script>
+		<script src="$GODOT_URL"></script>
 		<script>
-const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"executable":"HumanInvaders","experimentalVK":false,"fileSizes":{"HumanInvaders.pck":3380240,"HumanInvaders.wasm":49219187},"focusCanvas":true,"gdextensionLibs":[]};
+const GODOT_CONFIG = $GODOT_CONFIG;
 const engine = new Engine(GODOT_CONFIG);
 
 (function () {
@@ -247,4 +243,3 @@ const engine = new Engine(GODOT_CONFIG);
 		</script>
 	</body>
 </html>
-
