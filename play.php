@@ -11,6 +11,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     (new login)->logUserIn();
 }
 
+
+
 if (isset($_GET['deleteID'])) {
     $accountID = $_GET['deleteID'];
 
