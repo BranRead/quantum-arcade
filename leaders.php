@@ -1,42 +1,48 @@
 <?php
-// This isn't needed since it's done on updateUsername.php. That file won't fun unless it's called there.
-//session_start();
 require_once "php/crud.php";
 require_once "php/login.php";
 require_once "php/updateUsername.php";
 
+$battySQL = "SELECT scoreleaderboard.score_id, scoreleaderboard.user_id, scoreleaderboard.game_id, scoreleaderboard.score, useraccounts.avatarurl, useraccounts.username 
+             FROM scoreleaderboard inner join useraccounts on scoreleaderboard.user_id = useraccounts.user_id where game_id = 2 order by score desc limit 10";
 
+$boltSQL = "SELECT scoreleaderboard.score_id, scoreleaderboard.user_id, scoreleaderboard.game_id, scoreleaderboard.score, useraccounts.avatarurl, useraccounts.username 
+             FROM scoreleaderboard inner join useraccounts on scoreleaderboard.user_id = useraccounts.user_id where game_id = 3 order by score desc limit 10";
+
+$foxboundSQL = "SELECT scoreleaderboard.score_id, scoreleaderboard.user_id, scoreleaderboard.game_id, scoreleaderboard.score, useraccounts.avatarurl, useraccounts.username 
+             FROM scoreleaderboard inner join useraccounts on scoreleaderboard.user_id = useraccounts.user_id where game_id = 4 order by score desc limit 10";
+
+$dinoSQL = "SELECT scoreleaderboard.score_id, scoreleaderboard.user_id, scoreleaderboard.game_id, scoreleaderboard.score, useraccounts.avatarurl, useraccounts.username 
+             FROM scoreleaderboard inner join useraccounts on scoreleaderboard.user_id = useraccounts.user_id where game_id = 1 order by score desc limit 10";
 
 $crud = new crud();
 
-$gameList = $crud->read("SELECT DISTINCT game_id, title, image_url FROM gamelist;");
+$bolt = $crud->read($boltSQL);
+$dinodash = $crud->read($dinoSQL);
+$batty = $crud->read($battySQL);
+$foxbound = $crud->read($foxboundSQL);
 
-function getLeaderBoard($gameId){
+function placeLeaderBoard ($game) {
     $isLeader = true;
     $rank = 1;
-    $crud = new crud();
-
-    $scores = $crud->selectScores($gameId);
-
-    while ($row = $scores->fetch_assoc()){
+    while ($row = $game->fetch_assoc()) {
         if ($isLeader) {
             $isLeader = false;
-            echo "<tr class='table-row'>
-                             <th scope='row'>#" . $rank . "</th>
-                             <td><img class='leaderboard-display-pic' src='" . $row['avatarurl'] . "' alt='Users profile picture'> " . $row['username'] . "</td>
-                             <td>" . $row['score'] . "</td>
-                         </tr>";
+            echo "<tr class='table-row'> 
+                      <th scope='row'>#" . $rank . "</th>
+                      <td><img class='leaderboard-display-pic' src='" . $row['avatarurl'] . "' alt='Users profile picture'> " . $row['username'] . "</td>
+                      <td>" . $row['score'] . "</td>
+                  </tr>";
         } else {
-            echo "<tr class='table-row'>
-                             <th scope='row'>#" . $rank . "</th>
-                             <td>" . $row['username'] . "</td>
-                             <td>" . $row['score'] . "</td>
-                         </tr>";
+            echo "<tr class='table-row'> 
+                      <th scope='row'>#" . $rank . "</th>
+                      <td>" . $row['username'] . "</td>
+                      <td>" . $row['score'] . "</td>
+                  </tr>";
         }
         $rank++;
     }
 }
-
 ?>
 
 <!doctype html>
@@ -60,17 +66,6 @@ function getLeaderBoard($gameId){
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-<!--            <div id="profileTitle" class="d-flex flex-row align-items-center">-->
-<!--                <img class="displayPic" src="images/default-profile-pic.png" alt="" data-bs-toggle=modal data-bs-target=--><?php //if(!isset($_SESSION['userID'])) : echo "#login-modal"; else : echo "#user-settings"; endif;?><!-->
-<!--                <p id="displayedUsername" class="text-center white-text">--><?php //if(isset($_SESSION['userID'])) : echo $_SESSION['userName']; else : echo "UserName"; endif;?><!--</p>-->
-<!--                <div class="mx-2 d-flex flex-row align-items-center">-->
-<!--                    <form id="changeUsernameForm" method="post" action="php/updateUsername.php">-->
-<!--                        <input id="changeUsernameInput" class="form-input-small" name="changeUsernameInput" placeholder="">-->
-<!--                        <button class="xtra-sm-button" name="location" value="leaders.php" type="submit">Submit</button>-->
-<!--                    </form>-->
-<!--                </div>-->
-<!--                <img id="changeUsername" src="/images/settingsIcon.png" alt="Settings">-->
-<!--            </div>-->
             <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
@@ -89,7 +84,7 @@ function getLeaderBoard($gameId){
             </div>
         </div>
     </nav>
-    
+
     <!--Modal for user settings-->
     <div class="modal fade" id="user-settings" tabindex="-1" aria-labelledby="login-modal-label" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -239,11 +234,8 @@ function getLeaderBoard($gameId){
     </div>
     <div class="container-fluid">
         <div class="row justify-content-around my-3">
-
-            <?php
-                while($row = $gameList->fetch_assoc()){
-                    echo '<div class="col-lg-5 leaderboard-card" style="background-image: url("' . $row["image_url"] . '")">
-                <div class="header-leaderboard text-center white-text"><h2>' . $row["title"] . '</h2></div>
+            <div class="col-lg-5 leaderboard-card" style="background-image: url('/images/gameimages/battyFarming.png')">
+                <div class="header-leaderboard text-center white-text"><h2>Batty Farming</h2></div>
                 <table class="leaderboard-table white-text">
                     <thead>
                     <tr>
@@ -252,13 +244,57 @@ function getLeaderBoard($gameId){
                         <th scope="col">Score</th>
                     </tr>
                     </thead>
-                    <tbody>';
-                getLeaderBoard(intval($row['game_id']));
-                echo '</tbody>
+                    <tbody>
+                    <?php placeLeaderBoard($batty); ?>
+                    </tbody>
                 </table>
-            </div>';
-                }
-            ?>
+            </div>
+            <div class="col-lg-5 leaderboard-card" style="background-image: url('/images/gameimages/bolt.png')">
+                <div class="header-leaderboard text-center white-text"><h2>Bolt</h2></div>
+                <table class="leaderboard-table white-text">
+                    <thead>
+                    <tr>
+                        <th scope="col">Rank</th>
+                        <th scope="col">Player</th>
+                        <th scope="col">Score</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!-- copy following php into next tbody, and then change variable in while condition from $bolt to $dino or $foxbound-->
+                    <?php placeLeaderBoard($bolt); ?>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-lg-5 leaderboard-card" style="background-image: url('/images/gameimages/foxbound.png')">
+                <div class="header-leaderboard text-center white-text"><h2>Fox Bound</h2></div>
+                <table class="leaderboard-table white-text">
+                    <thead>
+                    <tr>
+                        <th scope="col">Rank</th>
+                        <th scope="col">Player</th>
+                        <th scope="col">Score</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php placeLeaderBoard($foxbound); ?>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-lg-5 leaderboard-card" style="background-image: url('/images/gameimages/dinoDash.png')">
+                <div class="header-leaderboard text-center white-text"><h2>Dino Dash</h2></div>
+                <table class="leaderboard-table white-text">
+                    <thead>
+                    <tr>
+                        <th scope="col">Rank</th>
+                        <th scope="col">Player</th>
+                        <th scope="col">Score</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php placeLeaderBoard($dinodash); ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
     <div id="footer" class="d-flex flex-column align-items-center">
