@@ -36,7 +36,6 @@ class crud {
     public function read($sql_query) {
         try {
             $conn = (new config)->getDBConnection();
-
             return $conn->query($sql_query);
         } catch (Exception $e) {
             die("err: " . $e->getMessage());
@@ -212,5 +211,18 @@ class crud {
         }
 
         return $sessionID;
+    }
+
+    public function selectScores($userId){
+        $leaderBoardSQL = sprintf("SELECT scoreleaderboard.score_id, scoreleaderboard.user_id, scoreleaderboard.score, useraccounts.avatarurl, useraccounts.username
+             FROM scoreleaderboard inner join useraccounts on scoreleaderboard.user_id = useraccounts.user_id where game_id = '%u' order by score desc limit 10", $userId);
+//        $conn = (new config)->getDBConnection();
+        $crud = new crud;
+        try {
+            return $crud->read($leaderBoardSQL);
+
+        } catch (Exception $e) {
+            die("err: " . $e->getMessage());
+        }
     }
 }
