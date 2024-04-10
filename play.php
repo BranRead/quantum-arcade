@@ -1,11 +1,9 @@
 <?php
-// This isn't needed since it's done on updateUsername.php. That file won't fun unless it's called there.
-//session_start();
+
 require_once "php/crud.php";
 require_once "php/login.php";
 require_once "php/updateUsername.php";
 
-//$isValid = false;
 $crud = new crud();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     (new login)->logUserIn();

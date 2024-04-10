@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require_once 'crud.php';
     require_once 'config.php';
     class login
@@ -14,7 +15,7 @@
             if ($user) {
                 if (password_verify($_POST["password"], $user["passHash"])) {
                     session_regenerate_id(true);
-                    session_start();
+
                     $_SESSION["sessionID"] = $crud->createSessionID();
                     $_SESSION["userName"] = $user["username"];
                     $_SESSION["userID"] = $user["user_id"];

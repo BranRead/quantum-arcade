@@ -1,10 +1,8 @@
 <?php
 
-require_once "config.php";
-class crud
-{
-    public function createUser($username, $email, $passHash)
-    {
+require_once 'config.php';
+class crud {
+    public function createUser($username, $email, $passHash) {
         try {
             $conn = (new config)->getDBConnection();
 
@@ -35,8 +33,7 @@ class crud
         }
     }
 
-    public function read($sql_query)
-    {
+    public function read($sql_query) {
         try {
             $conn = (new config)->getDBConnection();
 
@@ -47,8 +44,7 @@ class crud
 
     }
 
-    public function update()
-    {
+    public function update() {
         $conn = (new config)->getDBConnection();
 
         $sql = "UPDATE users SET username = ?, email = ?, passHash = ? WHERE id = ?";
@@ -64,8 +60,7 @@ class crud
         }
     }
 
-    public function updateUsername($username, $userID, $location)
-    {
+    public function updateUsername($username, $userID, $location) {
         $conn = (new config)->getDBConnection();
 
         $sql = "UPDATE useraccounts SET username = ? WHERE user_id = ?";
@@ -83,8 +78,7 @@ class crud
         }
     }
 
-    public function updatePassword($password, $userID, $location)
-    {
+    public function updatePassword($password, $userID, $location) {
 
         $conn = (new config)->getDBConnection();
 
@@ -102,7 +96,7 @@ class crud
         }
     }
 
-    public function readPassword($userID){
+    public function readPassword($userID) {
 
         $conn = (new config)->getDBConnection();
         $crud = new crud;
@@ -117,8 +111,7 @@ class crud
         }
     }
 
-    public function deleteScores($id)
-    {
+    public function deleteScores($id) {
         $conn = (new config)->getDBConnection();
 
         try {
@@ -145,8 +138,7 @@ class crud
     }
 
     //New function added by Sophie March 29th
-    public function addScore($userID, $gameID, $score)
-    {
+    public function addScore($userID, $gameID, $score) {
         $conn = (new config)->getDBConnection();
 
         try {
