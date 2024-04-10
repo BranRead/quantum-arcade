@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once "crud.php";
 
 
@@ -26,4 +26,6 @@ $crud = new crud;
             die("err at delete account php: " . $e->getMessage());
         }
     }
-
+}else{
+    echo "No data";
+}
