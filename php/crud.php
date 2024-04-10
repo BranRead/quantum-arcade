@@ -47,7 +47,7 @@ class crud {
     public function update() {
         $conn = (new config)->getDBConnection();
 
-        $sql = "UPDATE users SET username = ?, email = ?, passHash = ? WHERE id = ?";
+        $sql = "UPDATE useraccounts SET username = ?, email = ?, passHash = ? WHERE user_id = ?";
         $stmt = $conn->stmt_init();
         if (!$stmt->prepare($sql)) {
             die("err: " . $conn->error);
