@@ -1,6 +1,4 @@
 <?php
-// This isn't needed since it's done on updateUsername.php. That file won't fun unless it's called there.
-//session_start();
 require_once "php/crud.php";
 require_once "php/login.php";
 require_once "php/updateUsername.php";
@@ -68,17 +66,6 @@ function placeLeaderBoard ($game) {
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-<!--            <div id="profileTitle" class="d-flex flex-row align-items-center">-->
-<!--                <img class="displayPic" src="images/default-profile-pic.png" alt="" data-bs-toggle=modal data-bs-target=--><?php //if(!isset($_SESSION['userID'])) : echo "#login-modal"; else : echo "#user-settings"; endif;?><!-->
-<!--                <p id="displayedUsername" class="text-center white-text">--><?php //if(isset($_SESSION['userID'])) : echo $_SESSION['userName']; else : echo "UserName"; endif;?><!--</p>-->
-<!--                <div class="mx-2 d-flex flex-row align-items-center">-->
-<!--                    <form id="changeUsernameForm" method="post" action="php/updateUsername.php">-->
-<!--                        <input id="changeUsernameInput" class="form-input-small" name="changeUsernameInput" placeholder="">-->
-<!--                        <button class="xtra-sm-button" name="location" value="leaders.php" type="submit">Submit</button>-->
-<!--                    </form>-->
-<!--                </div>-->
-<!--                <img id="changeUsername" src="/images/settingsIcon.png" alt="Settings">-->
-<!--            </div>-->
             <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
@@ -97,7 +84,7 @@ function placeLeaderBoard ($game) {
             </div>
         </div>
     </nav>
-    
+
     <!--Modal for user settings-->
     <div class="modal fade" id="user-settings" tabindex="-1" aria-labelledby="login-modal-label" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">

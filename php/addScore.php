@@ -1,8 +1,8 @@
 <?php
 session_start();
 require_once "crud.php";
-$crud = new crud;
 
+$crud = new crud;
 $json = json_decode(file_get_contents("php://input"));
 
     if ($json === null) {
