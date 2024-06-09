@@ -1,39 +1,40 @@
 
 
 let animationID;
-
-// The function to allow changing username right in the profile card
-
-document.getElementById("changeUsername").addEventListener("click", () => {
-    let userNameDisplay = document.getElementById("displayedUsername");
-    if(userNameDisplay.style.display === "none"){
-        document.getElementById("changeUsernameForm").style.display = "none";
-        userNameDisplay.style.display = "block";
-    } else {
-        userNameDisplay.style.display = "none";
-        let username = userNameDisplay.textContent;
-        document.getElementById("changeUsernameForm").style.display = "block";
-        document.getElementById("changeUsernameInput").placeholder = username;
-    }
-})
-
-document.getElementById("changeUsername").addEventListener("onmouseover", ()=>{
-
-})
-
-document.getElementById("changeUsername").addEventListener("onmouseout", ()=>{
-
-})
-
-
+let previousTime = 0;
+let currentTime = 0;
+let changeUsername = document.getElementById("changeUsername");
 const canvas = document.getElementById("buggyScreen");
 
+// The function to allow changing username right in the profile card
+if(changeUsername != null){
+    changeUsername.addEventListener("click", () => {
+        let userNameDisplay = document.getElementById("displayedUsername");
+        if(userNameDisplay.style.display === "none"){
+            document.getElementById("changeUsernameForm").style.display = "none";
+            userNameDisplay.style.display = "block";
+        } else {
+            userNameDisplay.style.display = "none";
+            let username = userNameDisplay.textContent;
+            document.getElementById("changeUsernameForm").style.display = "block";
+            document.getElementById("changeUsernameInput").placeholder = username;
+        }
+    })
+}
+// document.getElementById("changeUsername").addEventListener("onmouseover", ()=>{
+//
+// })
+//
+// document.getElementById("changeUsername").addEventListener("onmouseout", ()=>{
+//
+// })
 if(canvas != null) {
     const context = canvas.getContext("2d");
     canvas.width = 700;
     canvas.height = 100;
 
     const buggyImageRight = new Image();
+    let buggySpeed = 2;
     buggyImageRight.src = "images/raccoonWalkRight.png";
 
     const buggyImageLeft = new Image();
@@ -69,10 +70,14 @@ if(canvas != null) {
 
     function animation(){
         animationID = window.requestAnimationFrame(animation);
+        previousTime = currentTime;
+        currentTime = performance.now();
+        let deltaTime = currentTime - previousTime;
+        deltaTime /= 10;
         if(buggy.isGoingRight) {
-            buggy.canvasPosition.x += 2;
+            buggy.canvasPosition.x += buggySpeed * deltaTime;
         } else {
-            buggy.canvasPosition.x -= 2;
+            buggy.canvasPosition.x -= buggySpeed * deltaTime;
         }
 
         if(buggy.canvasPosition.x > canvas.width){
@@ -83,7 +88,7 @@ if(canvas != null) {
             buggy.image = buggy.sprite.right;
         }
         context.clearRect(0, 0, canvas.width, canvas.height);
-        buggy.draw(context);
+        buggy.draw(context, deltaTime);
     }
 
     animation();
