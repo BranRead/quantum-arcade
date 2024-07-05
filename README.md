@@ -1,3 +1,6 @@
+>[!IMPORTANT]
+>We host the website ourselves and the owner of the server has *temporarily* shutdown the server.  
+>Feel free to submit game ideas in the meantime!
 # Quantum Arcade
 
 ## Overview
